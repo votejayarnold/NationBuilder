@@ -112,16 +112,6 @@
 
             {{ content_for_footer }}
 
-              <div class="footer-social-links">
-                  {% if site.has_facebook_page? %}<a href="{{ site.broadcaster.facebook_page_profile_url }}"><i class="icon-facebook-squared"></i></a>{% endif %}
-                  {% if site.has_twitter? %}<a href="{{ site.broadcaster.twitter_profile_url }}"><i class="icon-twitter-squared"></i></a>{% endif %}
-                  {% if page and page.has_rss? %}
-                  <a href="{{ page.rss_url }}"><i class="icon-rss"></i></a>
-                  {% elsif page and page.has_parent? and page.parent.has_rss? %}
-                  <a href="{{ page.parent.rss_url }}"><i class="icon-rss"></i></a>
-                  {% endif %}
-              </div>
-
             <div class="footer-content">
 
               {% if site.footer_content.size > 0 %}
