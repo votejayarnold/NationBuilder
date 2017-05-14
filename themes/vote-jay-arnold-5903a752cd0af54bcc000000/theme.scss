@@ -675,7 +675,8 @@ nav {
     max-width: 100%;
   }
   .pc {
-    display: block;
+    display:none;
+    // display: block;
     background-color: $theme-color-1;
     color: $text-color;
     width: 100%;
@@ -1210,7 +1211,8 @@ footer {
   font-size: .75em;
   font-weight: 700;
   padding: .2em .625em;
-  display: inline-block;
+  // display: inline-block;
+  display:none;
   margin: .25em 0;
 }
 
