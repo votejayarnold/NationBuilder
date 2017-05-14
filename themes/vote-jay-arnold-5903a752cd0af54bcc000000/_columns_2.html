@@ -12,16 +12,18 @@
   <!-- .left_column -->
 
   <div class="right-column">
-      <div class="sidebar-social-links">
-          {% if site.has_facebook_page? %}<a href="{{ site.broadcaster.facebook_page_profile_url }}"><i class="icon-facebook-squared"></i></a>{% endif %}
-          {% if site.has_twitter? %}<a href="{{ site.broadcaster.twitter_profile_url }}"><i class="icon-twitter-squared"></i></a>{% endif %}
-          {% if page and page.has_rss? %}
-          <a href="{{ page.rss_url }}"><i class="icon-rss"></i></a>
-          {% elsif page and page.has_parent? and page.parent.has_rss? %}
-          <a href="{{ page.parent.rss_url }}"><i class="icon-rss"></i></a>
-          {% endif %}
-      </div>
-
+    {% if site.has_facebook_page? or site.has_twitter? %}
+    <div class="sidebar-social-links">
+        <h5>Latest Updates</h5>
+        {% if site.has_facebook_page? %}<a href="{{ site.broadcaster.facebook_page_profile_url }}"><i class="icon-facebook-squared"></i></a>{% endif %}
+        {% if site.has_twitter? %}<a href="{{ site.broadcaster.twitter_profile_url }}"><i class="icon-twitter-squared"></i></a>{% endif %}
+        {% if page and page.has_rss? %}
+        <a href="{{ page.rss_url }}"><i class="icon-rss"></i></a>
+        {% elsif page and page.has_parent? and page.parent.has_rss? %}
+        <a href="{{ page.parent.rss_url }}"><i class="icon-rss"></i></a>
+        {% endif %}
+    </div>
+    {% endif %}
 
     <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FVoteJayArnold%2F&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=279061945769104" width="340" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
     

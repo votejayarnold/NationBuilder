@@ -636,6 +636,21 @@ nav {
   }
 }
 
+.sidebar-social-links {
+    font-size: 1.5em;
+
+    a {
+        color: $header-color;
+    }
+    a:hover {
+        color: $theme-color-1;
+    }
+
+    a:first-child i:before {
+        margin-left: 0;
+    }
+}
+
 // page layout if the sidebar is turned off
 
 .onecolumn-container {
@@ -1052,6 +1067,10 @@ footer {
   .footer-text {
     padding-bottom: 2em;
   }
+}
+
+.poweredby {
+    font-size:x-small;
 }
 
 // byline used in blogs, suggestion boxes, events, etc.
