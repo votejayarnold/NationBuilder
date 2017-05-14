@@ -12,19 +12,24 @@
   <!-- .left_column -->
 
   <div class="right-column">
+      <div class="sidebar-social-links">
+          {% if site.has_facebook_page? %}<a href="{{ site.broadcaster.facebook_page_profile_url }}"><i class="icon-facebook-squared"></i></a>{% endif %}
+          {% if site.has_twitter? %}<a href="{{ site.broadcaster.twitter_profile_url }}"><i class="icon-twitter-squared"></i></a>{% endif %}
+          {% if page and page.has_rss? %}
+          <a href="{{ page.rss_url }}"><i class="icon-rss"></i></a>
+          {% elsif page and page.has_parent? and page.parent.has_rss? %}
+          <a href="{{ page.parent.rss_url }}"><i class="icon-rss"></i></a>
+          {% endif %}
+      </div>
 
+
+    <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FVoteJayArnold%2F&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=279061945769104" width="340" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+    
     {% if request.logged_in? %}
 
     {% include "supporter_nav" %}
 
     {% else %}
-
-    <ul class="supporter-nav block">
-      <li><a href="{{ request.facebook_connect_url }}"><i class="icon-facebook-squared"></i> Sign in with Facebook</a>
-      </li>
-      <li><a href="{{ request.twitter_connect_url }}"><i class="icon-twitter-squared"></i> Sign in with Twitter</a></li>
-      <li><a href="/login"><i class="icon-email"></i> Sign in with Email</a></li>
-    </ul>
 
     {% if site.has_signup_page? %}
     {% include "signup_form" with site.signup_page %}
