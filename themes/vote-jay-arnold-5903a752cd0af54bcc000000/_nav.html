@@ -22,6 +22,7 @@
     {% endif %}
     {% endfor %}
   </ul>
+  {% comment %}
   {% if request.logged_in? %}
   <div class="user-menu active">
     <a class="user-menu-profile-link" href="{{ request.current_signup.settings_url }}"><i class="icon-user"></i><i class="icon-angle-down"></i><span>Profile</span></a>
@@ -69,6 +70,7 @@
     </div>
   </div>
   {% endif %}
+  {% endcomment %}
 </nav>
 
 <a href="#menu" class="menu-link"><i class="icon-menu"></i></a>
