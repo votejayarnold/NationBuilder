@@ -1,0 +1,40 @@
+<div id="flash-share" class="flash-share">
+  <h3 class="headline">{{ flash.message }}</h3>
+  <div class="share">
+    <span
+      >Tell all your friends, they should join you! A link will be included.</span
+    >
+    <div class="share-btns row-fluid">
+      <div class="span3 padbottom">
+        <a class="button btn" href="mailto:?body={{ flash.page.full_url_with_recruiter }}">Email</a>
+      </div>
+      <div class="span3 padbottom">
+        <a
+          class="button btn facebook"
+          href="https://www.facebook.com/share.php?u={{ flash.page.full_url_with_recruiter }}"
+          >Facebook</a
+        >
+      </div>
+      <div class="span3 padbottom">
+        <a class="button btn twitter" href="{{ flash.page.tweet_url }}">Twitter</a>
+      </div>
+      <div class="span3">
+        <a class="button btn whatsapp" href="https://api.whatsapp.com/send?text={{ flash.page.full_url_with_recruiter }}"
+          >WhatsApp</a
+        >
+      </div>
+    </div>
+    <div class="padbottom" style="text-align:right;">
+      <small><a id="share-remove" href="javascript:void(0)">No Thanks</a></small>
+    </div>
+  </div>
+</div>
+<script>
+  (function() {
+    document.getElementById('flash-share').addEventListener('click', function(e) {
+      if (e.target.id === 'share-remove') {
+        this.parentNode.removeChild(this);
+      }
+    });
+  })();
+</script>
