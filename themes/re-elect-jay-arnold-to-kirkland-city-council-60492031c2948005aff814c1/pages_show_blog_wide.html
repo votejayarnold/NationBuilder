@@ -1,0 +1,171 @@
+{% include "breadcrumbs" %}
+
+{% if page.headline.size > 0 and page.blog.is_posting_public? %}
+<h2 class="headline">{{ page.headline }}</h2>
+{% endif %}
+
+<div id="content">
+
+  {% if page.blog.is_posting_public? %}
+
+  <div class="one-column padbottommore">
+    <div class="form-wrap public-posting-form">
+      <div class="form">
+          {% form_for blog_post_page %}
+          <div class="form-errors">{% error_messages_for blog_post_page %}</div>
+
+          <div id="blog-post-page-page-headline-input" class="blog-post-page-page-headline-input">
+            {% text_field "page_headline", class:"text" %}
+          </div>
+
+          <div id="blog-post-page-form-expanded" class="blog-post-page-form-expanded hide">
+            <div class="padtopmore">
+              {% text_area "content_editable", class:"textarea-tinymce" %}
+            </div>
+            <div class="padtop">
+              {% if page.show_consent_form? %}
+              {% include "consent_form" %}
+              {% endif %}
+              {% submit_tag "Post", class:"submit-button" %}
+              <div class="form-submit"></div>
+            </div>
+          </div>
+          {% endform_for %}
+      </div>
+      {% unless request.logged_in? %}
+      <div class="user-session-form-container hide">
+        {% include "user_session_form" %}
+      </div>
+      {% endunless %}
+    </div>
+  </div>
+  {% endif %}
+
+  <div class="blog" id="blog-page-{{ page.id }}">
+    {% for post in page.blog.most_recent_blog_posts %}
+      <div class="page-excerpt clearfix" id="blog-post-page-{{ post.id }}">
+
+        <div class="row-fluid">
+
+          {% if post.has_meta_image? %}
+
+            <div class="span12 content-wrap">
+              <h3><a href="{{ post.url }}">{{ post.headline }}</a></h3>
+              <img class="blog-meta-img" src="{{ post.meta_image_url }}"></img> 
+              <div class="excerpt">
+                {{ post.blog_post.content }}
+                {% if post.blog_post.is_extended? %}
+                <span class="read-more"><a href="{{ post.url }}">Read more</a></span>
+                {% endif %}
+              </div>
+              
+              <div class="byline">
+
+                <div class="byline-image-wrap">
+                  <div class="byline-image">
+                    {{ post.author.bigger_profile_image }}
+                  </div>
+                  
+                  {% if request.logged_in? %}
+                  {% unless request.current_signup.id == post.author.id %}
+                  <div class="byline-follow">
+                    <div class="signup-follow-{{ post.author.id }}">
+                      {% assign byline = post.author %}
+                          {% include "signup_follow" with byline %}
+                      </div>
+                  </div>
+                  {% endunless %}
+                  {% endif %}
+                </div>
+
+                posted by <span class="name">{{ post.author.published_name_linked }}</span> | <span class="pc">{{ post.author.capital_amount_format }}</span><br>
+                  {{ post.published_at | date: '%B %d, %Y' }}
+                {% if site.has_rule_post? and request.logged_in? %}&middot; <a href="{{ post.flag_url }}" class="flag"><i class="fa fa-flag"></i></a>{% endif %}
+
+              </div>
+            
+              <div class="share-bar">
+                {% if post.show_stream? %}
+
+                <a href="{{ post.url }}#addreaction" class="button icon-button">
+                  {% if post.public_activities_count > 0 %}
+                    <i>{{ post.public_activities_count }}</i> comment{% if post.public_activities_count > 1 %}s{% endif %}
+                  {% else %}
+                    <i class="fa fa-comment"></i> Comment
+                  {% endif %}
+                </a>
+
+                {% endif %}
+
+                <a href="/forms/shares/new?page_id={{ post.id }}" class="get button icon-button"><i class="fa fa-sitemap"></i>Share</a>
+                <div id="page-share-form-{{ post.id }}"></div>
+              </div>
+            </div>
+
+          {% else %}
+
+            <div class="span12 content-wrap">
+              <h3><a href="{{ post.url }}">{{ post.headline }}</a></h3>
+
+              <div class="excerpt">
+                {{ post.blog_post.content }}
+                {% if post.blog_post.is_extended? %}
+                <span class="read-more"><a href="{{ post.url }}">Read more</a></span>
+                {% endif %}
+              </div>
+
+              <div class="byline">
+
+                <div class="byline-image-wrap">
+                  <div class="byline-image">
+                    {{ post.author.bigger_profile_image }}
+                  </div>
+                  
+                  {% if request.logged_in? %}
+                  {% unless request.current_signup.id == post.author.id %}
+                  <div class="byline-follow">
+                    <div class="signup-follow-{{ post.author.id }}">
+                      {% assign byline = post.author %}
+                          {% include "signup_follow" with byline %}
+                      </div>
+                  </div>
+                  {% endunless %}
+                  {% endif %}
+                </div>
+
+                posted by <span class="name">{{ post.author.published_name_linked }}</span> | <span class="pc">{{ post.author.capital_amount_format }}</span><br>
+                  {{ post.published_at | date: '%B %d, %Y' }}
+                {% if site.has_rule_post? and request.logged_in? %}&middot; <a href="{{ post.flag_url }}" class="flag"><i class="fa fa-flag"></i></a>{% endif %}
+
+              </div>
+
+              <div class="share-bar">
+                {% if post.show_stream? %}
+
+                <a href="{{ post.url }}#addreaction" class="button icon-button">
+                  {% if post.public_activities_count > 0 %}
+                    <i>{{ post.public_activities_count }}</i> comment{% if post.public_activities_count > 1 %}s{% endif %}
+                  {% else %}
+                    <i class="fa fa-comment"></i> Comment
+                  {% endif %}
+                </a>
+
+                {% endif %}
+
+                <a href="/forms/shares/new?page_id={{ post.id }}" class="get button icon-button"><i class="fa fa-sitemap"></i>Share</a>
+                <div id="page-share-form-{{ post.id }}"></div>
+              </div>
+            </div>
+
+          {% endif %}
+        
+        </div>
+
+      </div>
+
+      <hr/>
+    {% endfor %}
+  </div>
+
+  {{ page.blog.most_recent_blog_posts | paginate prev_label: "&laquo;" next_label: "&raquo;" }}
+</div>

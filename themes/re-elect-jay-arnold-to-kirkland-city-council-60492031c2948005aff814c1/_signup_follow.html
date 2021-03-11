@@ -1,0 +1,13 @@
+{% if request.logged_in? %}
+  {% if profile.id != request.current_signup.id %}
+<!-- changed signup_follow.id to profile.id b/c signup_follow wasn't returning anything -->
+    <div class="signup-follow">
+    {% if request.current_signup.following_ids contains signup_follow.id %}
+	Following<a href="{{ signup_follow.unfollow_url }}" class="delete"><i class="icon-cancel-circle"></i></a>
+	{% else %}
+	<div class="button tiny-button"><a href="{{ signup_follow.follow_url }}" class="post">Follow</a></div>
+	{% endif %}
+    </div>
+
+  {% endif %}
+{% endif %}

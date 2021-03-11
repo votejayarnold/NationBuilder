@@ -1,0 +1,3101 @@
+/* ============================================================================
+   This is a mobile first stylesheet and it applies to all screen widths.
+   For changes to the desktop or tablet viewports, see tablet-and-desktop.scss.
+   ============================================================================ */
+
+//* style variables *//
+
+// headline font
+$headline-font: "Josefin Sans", sans-serif;
+$title-font-weight: 700;
+
+// alternative headline font
+$headline-font-alt: "Josefin Sans", sans-serif;
+
+// main font
+$font: "Bitter", serif;
+
+$turquoise: #53cfd7;
+$grey: #999;
+$ltgrey: #999;
+$charcoal: #cacaca;
+$red: #ff3232;
+$green: #619114;
+$facebook: #3b5998;
+$twitter: #00aced;
+$header-color: #fff;
+$header-text-color: #000;
+
+$theme-color-1: darken(#FFEC00, 8);
+$theme-color-2: #000;
+$theme-color-3: #333;
+$theme-color-4: darken(#FFEC00, 8);
+
+//general site settings
+$site-bg: #D6D6D6;
+$site-color: #000;
+$desktop-site-bg: #000;
+$desktop-site-color: #000;
+$onecolumn-bg: #fff;
+$twocolumn-color: #fff;
+$footer-bg: #323232;
+$headline-weight: 700;
+$check_radio_sheet: url(check_radio_sheet_black.png);
+$progress: #D6C818;
+$headline-transform: uppercase;
+$opaque-bg-rgb: rgb(255, 255, 255);
+$opaque-bg-rgba: rgba(255, 255, 255, 0.8);
+
+//blog share bar
+$share-bar-bg: transparent;
+$icon-button-bg: #FFF7B0;
+$icon-button-border: 2px solid #FFF7B0;
+$icon-button-color: #332000;
+
+// blog byline and follow buttons
+$byline-image-border: #FFEC00;
+$delete: #FFEC00;
+$delete-border: 2px solid #FFEC00;
+$follow: #999;
+$follow-color: #332000;
+$follow-border: 2px solid #999;
+
+// page features
+$flex-background: #fff;
+$flex-border: 4px solid #fff;
+$flex-color: #000;
+
+
+// supporter nav buttons
+$supporter-nav-button-one: #FFEC00;
+$supporter-nav-color-one: #000;
+$supporter-nav-button-two: #FFF7B0;
+$supporter-nav-color-two: #000;
+$supporter-nav-button-three: #D6C818;
+$supporter-nav-color-three: #000;
+
+//turquoise specific fields
+$feature-border: 0;
+$supporter-nav-button-border: 0;
+
+// form input area focus color
+$theme-color-5: rgba(141, 207, 215, 0.6);
+
+// general success and error colors
+$red: #ff3232;
+$green: #619114;
+
+// donation nav link
+$donation-link-background: initial;
+$donation-link-hover: initial;
+$donation-link-float: none;
+$donation-link-line-height: 55px;
+$donation-link-margin: 0;
+
+// footer
+$footer-embellishment: none;
+$footer-embellishment-padding: 0px;
+
+// fixed admin nav
+$cd_admin_nav_background: #00799c;
+$cd_admin_nav_border_color: #006885;
+
+// mixins
+
+@mixin transparent-bg(){
+  /* Fallback for web browsers that doesn't support RGBa */
+  background: $opaque-bg-rgb;
+  /* RGBa with 0.6 opacity */
+  background: $opaque-bg-rgba;
+  /* For IE 5.5 - 7*/
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#CCFFFFFF, endColorstr=#CCFFFFFF);
+  /* For IE 8*/
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#CCFFFFFF, endColorstr=#CCFFFFFF)";
+}
+
+//* main responsive components *//
+
+@import "custom-mixins";
+
+// border-radius mixin
+@import "border_radius";
+
+// compass css3 mixins
+@import "compass/css3";
+
+// countdown widget for moneybomb page
+@import "framework_countdown2";
+
+// fluid grid
+@import "grid";
+
+// activity and page icons
+@import "icons";
+
+// form elements
+@import "forms";
+
+// buttons
+@import "buttons";
+
+// tooltips
+@import "tooltips";
+
+// tables
+@import "tables";
+
+// pagination
+@import "pagination";
+
+// progress bar
+@import "progress-bar";
+
+// mobile nav
+@import "mobile-nav";
+
+// staged donations
+@import "staged-donations";
+
+// fixed admin nav
+@import "cd_admin_nav";
+
+// format user submitted code in comments
+@import "updates";
+
+// applies border-box to all elements
+
+* {
+  box-sizing: border-box;
+}
+
+.clearfix {
+  @include nb-clearfix;
+}
+
+html,
+button,
+input,
+select,
+textarea {
+  color: #222;
+}
+
+// headlines
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $headline-font-alt;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2 {
+  line-height: 35px;
+}
+
+h3 {
+  line-height: 25px;
+}
+
+h1 {
+  font-size: 48px;
+  text-transform: $headline-transform;
+  font-weight: $headline-weight;
+  color: $theme-color-2;
+}
+
+h2 {
+  font-size: 36px;
+  text-transform: $headline-transform;
+  font-weight: $headline-weight;
+  color: $theme-color-2;
+}
+
+h3 {
+  font-size: 24px;
+  font-weight: $headline-weight;
+  text-transform: $headline-transform;
+}
+
+h4 {
+  font-size: 19px;
+  font-weight: $headline-weight;
+}
+
+h5 {
+  font-size: 14px;
+  font-weight: $headline-weight;
+}
+
+h6 {
+  font-size: 12px;
+  font-weight: $headline-weight;
+}
+
+.with-background{
+  .twocolumn-container{
+    .left-column{
+      color: $desktop-site-color;
+      h1, h2, h3, h4, h5, h6{
+        color: $desktop-site-color;
+        a {
+          color: $desktop-site-color;
+        }
+      }
+    }
+  }
+}
+
+.twocolumn-container {
+  .left-column, .right-column-wide {
+    h1, h2, h3, h4, h5, h6{
+      color: $twocolumn-color;
+      a {
+        color: $twocolumn-color;
+      }
+    }
+  }
+}
+
+.hide {
+  display: none;
+}
+
+// general link styles
+
+a {
+  color: $theme-color-1;
+  text-decoration: none;
+}
+
+a:focus,
+input:focus,
+textarea:focus,
+select:focus {
+  outline: thin dotted;
+  outline: 1px dashed $theme-color-5;
+  outline-offset: 0;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid $grey;
+  margin: 3em 0;
+  padding: 0;
+}
+
+strong{
+  font-weight: 700;
+}
+
+blockquote{
+  background-image: url(quote.png);
+  background-position: top left;
+  background-repeat: no-repeat;
+  background-size: 47px 44px;
+  padding-left: 70px;
+  font-size: 21px;
+  line-height: 24px;
+  color: black;
+  margin: 50px 0;
+}
+
+// allows embedded images to expand/contract with viewport
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+  border: none;
+}
+
+.chromeframe {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+body {
+  background: $site-bg;
+  margin: 0;
+  font: 15px/24px $font;
+  color: $site-color;
+  -webkit-font-smoothing: antialiased;
+}
+
+.width-container {
+  width: 90%;
+  margin: 0 5%;
+}
+
+.no-background {
+  background: none !important;
+}
+
+.center {
+  text-align: center;
+}
+
+// basic padding
+
+.padtopless {
+  padding-top: 5px;
+}
+
+.padtop {
+  padding-top: 10px;
+}
+
+.padtopmore {
+  padding-top: 15px;
+}
+
+.padbottomless {
+  padding-bottom: 5px;
+}
+
+.padbottom {
+  padding-bottom: 10px;
+}
+
+.padbottommore {
+  padding-bottom: 15px;
+}
+
+.fb-like-box iframe {
+  display: block;
+}
+
+// message asking people to check their email to activate account
+
+.activation-message {
+  font-weight: bold;
+  font-size: 18px;
+  color: $theme-color-3;
+}
+
+#content {
+  h1 {
+    line-height: 1.1;
+  }
+}
+
+// style an image with rounded corners
+
+.img-rounded {
+  @include border-radius(6px);
+}
+
+// style an image with a sublte frame
+
+.img-polaroid {
+  padding: 4px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+// style an image as a circle
+
+.img-circle {
+  @include border-radius(500px);
+}
+
+// add padding around an image
+
+.img-padleft {
+  margin: 5px 0 5px 15px;
+}
+
+.img-padright {
+  margin: 5px 15px 5px 0;
+}
+
+// javascript is used to wrap all iframes in a span called responsive-embed-wrapper to make them responsive
+
+.responsive-embed-wrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 30px;
+  height: 0;
+  overflow: hidden;
+  display: block;
+
+  iframe {
+    display: block;
+  }
+
+  iframe,
+  object,
+  embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.vcard {
+  .tel {
+    display: block;
+  }
+}
+// breadcrumbs
+
+.breadcrumbs {
+  margin: 0 0 50px;
+  list-style: none;
+  padding: 0;
+  a{
+    color: $theme-color-4;
+  }
+  li:first{
+    font-style: normal;
+    font-weight: $headline-weight;
+  }
+  li{
+    font-style: italic;
+    font-weight: 500;
+  }
+}
+
+.breadcrumbs > li {
+  display: inline-block;
+}
+
+.breadcrumbs > li > .divider {
+  padding: 0 5px;
+  color: $theme-color-4;
+}
+
+.breadcrumbs > .active {
+  color: #999999;
+}
+
+// site header image and subheadline
+
+.site-header{
+  height: 140px;
+  font-family: $headline-font;
+  font-weight: 500;
+  color: white;
+  font-size: 24px;
+  line-height: 28px;
+  background-size: cover !important;
+  padding: 25px 0;
+  box-shadow: 0 0 2px #000;
+  text-transform: $headline-transform;
+  position: relative;
+  z-index: 99999;
+  letter-spacing: 1px;
+  .site-subheadline{
+    width: 60%;
+  }
+}
+
+// site title shown in header
+
+.title {
+  color: #000;
+  font-size: 48px;
+  line-height: 50px;
+  a {
+    color: $header-text-color;
+    font-family: $headline-font;
+    font-weight: $title-font-weight;
+  }
+}
+
+// wraps your site name or site logo
+
+header {
+  float: left;
+  padding: 28px 0 25px 15px;
+  max-width: 78%;
+}
+
+// if the site has a logo, center it it above content in mobile view
+
+.site-logo {
+  header {
+    float: none;
+    text-align: center;
+    padding: 0;
+    max-width: 100%;
+    a{
+      position: absolute;
+      left: 50%;
+      line-height: 100px;
+    }
+    img {
+      max-width: 225px;
+      max-height: 100px;
+      position: relative;
+      left: -50%;
+    }
+  }
+}
+
+// if it's a splash page, center the logo or site name
+
+header.splash {
+  float: none;
+  text-align: center;
+  max-width: 100%;
+}
+
+.site-logo {
+  header.splash {
+    text-align: center;
+    margin-left: 0;
+    max-width: 100%;
+  }
+}
+
+// wraps every page headline
+
+#headline, .headline {
+  margin-bottom: 15px;
+}
+
+// icon which activates off canvas nav
+
+.menu-link {
+  float: left;
+  display: block;
+  line-height: 100px;
+}
+
+.menu-link {
+  .icon-menu {
+    color: $header-text-color;
+    font-size: 24px;
+  }
+}
+
+// off canvas mobile nav
+
+nav {
+  @include mobile-nav;
+}
+
+// page layout if the sidebar is turned on
+
+.twocolumn-container {
+  margin-top: 35px;
+  padding-bottom: 35px;
+  .left-column, .right-column-wide {
+    margin-bottom: 15px;
+  }
+  .right-column, .left-column-narrow {
+    margin-bottom: 15px;
+  }
+}
+
+// page layout if the sidebar is turned off
+
+.onecolumn-container {
+  margin-top: 35px;
+  padding-bottom: 35px;
+  overflow: hidden;
+}
+
+// supporter photo shown in supporter nav and user profile
+
+.supporter-pic {
+  text-align: center;
+  background: $ltgrey;
+  padding: 30px;
+  margin-bottom: 25px;
+  .user-status{
+    border-top: 1px solid $theme-color-4;
+    border-bottom: 1px solid $theme-color-4;
+    display: inline-block;
+    padding: 5px;
+    margin-top: 5px;
+  }
+  .user-status span {
+    display: inline-block;
+    padding-top: 5px;
+  }
+  a{
+    color: $theme-color-4;
+  }
+}
+
+.supporter-pic-left {
+  display: block;
+  width: 60px;
+  height: 60px;
+  @include border-radius(60px);
+  position: relative;
+  margin: 0 auto 10px;
+  overflow: hidden;
+  border: 2px solid white;
+  a {
+    display: block;
+  }
+  img {
+    max-width: 100%;
+  }
+}
+
+.supporter-welcome {
+  margin-bottom: .5em;
+  display: inline-block;
+}
+
+.pc {
+  display: inline-block;
+  font-size: 11px;
+  line-height: 20px;
+  color: $theme-color-4;
+  padding: 0;
+  border: 0;
+  text-align: center;
+  font-style: italic;
+}
+
+// supporter info displayed on the right of photo in supporter nav and user profile
+
+.supporter-pic-right {
+  font-size: 12px;
+  line-height: 18px;
+  min-height: 72px;
+  padding: 10px 2% 2% 10px;
+  vertical-align: middle;
+  .name {
+    font-weight: 500;
+    font-size: 18px;
+    display: block;
+    font-family: $headline-font;
+    text-transform: $headline-transform;
+  }
+}
+
+// point person shown in supporter nav, if one is set
+
+.point-pic-left {
+  float: left;
+  height: 60px;
+  width: 60px;
+  @include border-radius(60px);
+  border: 2px solid white;
+  margin-right: 7px;
+  overflow: hidden;
+  margin-top: 21px;
+  a {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  img {
+    max-width: 100%;
+  }
+}
+
+#myprofile{
+  a{
+    display: inline-block;
+    padding: 10px;
+  }
+  i{
+    font-size: 14px;
+  }
+}
+
+.point-pic-right {
+  margin-left: 50px;
+  background-color: $ltgrey;
+  min-height: 85px;
+  padding: 5%;
+  line-height: 22px;
+  .byline {
+    margin: 3px 0;
+    line-height: 19px;
+    .name{
+      font-size: 18px;
+      text-transform: $headline-transform;
+      font-family: $headline-font;
+    }
+    em{
+      text-transform: lowercase;
+    }
+    a{
+      color: $theme-color-4;
+    }
+  }
+  i {
+    font-size: 11px;
+    width: 19px;
+    height: 19px;
+    @include border-radius(20px);
+    color: white;
+    padding-left: 4px;
+    padding-top: 4px;
+  }
+  .fa-facebook{
+    background-color: $facebook;
+    padding-left: 7px;
+  }
+  .fa-twitter{
+    background-color: $twitter;
+  }
+  .fa-envelope{
+    background-color: $red;
+  }
+}
+
+// box which wraps blocks of content in sidebar
+
+.box {
+  background-color: $ltgrey;
+  padding: 25px;
+  margin-bottom: 10px;
+  margin-top: 35px;
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+// email signup which appears in right column if a user is signed out
+
+.email-signup {
+  input.text {
+    min-height: none;
+    height: 43px;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-appearance: none;
+    width: 63%;
+    @include border-radius-top-right(0px);
+    @include border-radius-bottom-right(0px);
+    border-right: 0;
+    display: inline-block;
+    margin: 0;
+  }
+  .submit-button {
+    display: inline-block;
+    position: relative;
+    width: 37%; // 81 by 300
+    margin: 0;
+    vertical-align: middle;
+    height: 40px;
+    @include border-radius-top-left(0px);
+    @include border-radius-bottom-left(0px);
+    &.disabled {
+      opacity: 0.45;
+    }
+    @each $current-headline-font in $headline-font {
+      @if $current-headline-font == 'Josefin Sans' {
+        top: 1px;
+      }
+    }
+  }
+}
+
+.header-signup{
+  .email-signup{
+    margin-top: 20px;
+  }
+}
+
+// flag link which allows user to report a post or comment
+
+.flag {
+  font-weight: normal !important;
+  font-size: 12px;
+}
+
+// activities shown at the bottom of a page, if turned on
+
+.activities {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  li {
+    padding: 0;
+    margin: 0;
+    margin-top: 25px;
+    font-size: 14px;
+    list-style: none;
+    padding-bottom: 15px;
+    [class^="icon-"] {
+      display: none;
+    }
+    .activity {
+      padding: 10px 0 10px 40px;
+      margin-left: 25px;
+      word-break: break-word;
+      background: $ltgrey;
+    }
+    .stream-pic {
+      float: left;
+      width: 48px;
+      height: 48px;
+      @include border-radius(50px);
+      overflow: hidden;
+      border: 2px solid white;
+      margin-top: 10px;
+      a {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+    }
+    a {
+      font-weight: bold;
+    }
+    .activity_content {
+      font-size: 14px;
+      padding: 10px 0 0 0;
+      a {
+        font-weight: normal;
+      }
+    }
+    .icon {
+      display: none;
+    }
+  }
+  .linked-signup-name {
+    color: $theme-color-4;
+    a{
+      color: $theme-color-4;
+    }
+  }
+}
+
+// clean formatting for name, activity type and date in page stream in mobile view
+
+ul#page-stream {
+  li.activity  {
+    span + a {
+    display: block;
+    }
+  }
+  .activity-time {
+    display: block;
+  }
+  .timeago {
+    display: block;
+    padding-right: 3px;
+    float: left;
+    font-size: 12px;
+    color: #999;
+  }
+  .activity-links a {
+    display: inline;
+  }
+  .activity-content {
+    clear: left;
+  }
+}
+
+// like page content at the bottom of pages
+
+.like-page {
+  clear: both;
+  padding: 25px 0;
+  border-top: 1px solid $theme-color-3;
+  margin-top: 25px;
+  strong{
+    font-size: 18px;
+    font-family: $headline-font;
+  }
+}
+
+//share url input box
+
+.share-url {
+  width: 400px;
+  box-sizing: border-box;
+}
+
+// excerpts of activities shown on a user profile page
+
+.page-excerpts {
+  margin: 0;
+  padding: 0;
+  li {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    .activity_content_text, .activity_content {
+      margin-top: 15px;
+    }
+    .activity {
+      margin: 0 0 15px 0;
+      // remove if you wish to show icons on activities
+      [class^="icon-"] {
+       display: none;
+      }
+    }
+    .page-excerpt {
+      padding: 20px 0 0 20px;
+    }
+    .form-wrap {
+      .answer-wrap {
+        background-color: darken($ltgrey, 5);
+      }
+      .icon-up-dir:before {
+        color: darken($ltgrey, 5);
+      }
+    }
+  }
+}
+
+.excerpt {
+  margin: 15px 0;
+}
+
+.excerpt .submit-button,
+.content-pages-show-moneybomb .submit-button{
+  vertical-align: top;
+}
+
+// list of events on calendar page
+
+.event-wrap {
+  margin: 0;
+  padding: 0;
+  @include nb-clearfix;
+
+  li {
+    list-style: none;
+    background-color: $ltgrey;
+    padding: 15px;
+    margin-bottom: 15px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  p {
+    @include nb-clearfix;
+  }
+}
+
+.event-venue {
+  margin: 0 0 1em 0;
+}
+// 'showing all events' text on calendar page
+
+.map-wrap {
+  .showing-all {
+    text-align: right;
+    font-size: 12px;
+  }
+  img {
+    max-width: none;
+  }
+  .infowindow-headline {
+    font-weight: bold;
+  }
+}
+
+// sign in text under sign up form
+
+.social {
+  font-size: 12px;
+}
+
+//invoices page
+
+.invoices {
+  .amount {
+    text-align: right;
+  }
+  .invoice-total .label {
+    padding-right: 10px;
+  }
+  .expander-content {
+    display: none;
+  }
+}
+
+//moneybomb page
+
+.page-type-moneybomb {
+  .event-detail subhead {
+    text-transform: uppercase;
+  }
+}
+
+//recruiter page
+
+.page-type-recruiting {
+  h4 {
+    font-family: $font;
+  }
+}
+
+// container for entire header area
+
+.header-container {
+  min-height: 100px;
+  background: $header-color;
+  box-shadow: 0 0 2px #000;
+}
+
+// site wide footer
+
+footer {
+  background-color: $footer-bg;
+  padding: 20px;
+  color: white;
+  a{
+    color: $theme-color-1;
+  }
+  .footer-text {
+    margin-top: 15px;
+  }
+  .footer-text p {
+    margin: 0;
+  }
+  .footer-right {
+    margin-top: 15px;
+  }
+  h4{
+    font-size: 14px;
+    margin: 15px 0 10px;
+  }
+  .fb_iframe_widget.comment-box-active > span {
+    height: auto !important;
+  }
+  .fb_iframe_widget_lift {
+    position: relative !important;
+  }
+}
+
+// byline used in blogs, suggestion boxes, events, etc.
+
+.byline {
+  font-size: 12px;
+  line-height: 15px;
+  margin: 25px 0;
+  font-style: italic;
+  .name{
+    text-transform: $headline-transform;
+    font-family: $headline-font;
+    font-size: 12px;
+    font-weight: $headline-weight;
+    font-style: normal;
+    color: $theme-color-4;
+    a{ color: $theme-color-4; }
+  }
+  .byline-image-wrap{
+    float: left;
+    margin-right: 20px;
+    position: relative;
+  }
+  .byline-image{
+    width: 48px;
+    height: 48px;
+    @include border-radius(50px);
+    overflow: hidden;
+    border: 2px solid $byline-image-border;
+    position: relative;
+    top: -4px;
+  }
+  .byline-follow{
+    position: absolute;
+    right: -5px;
+    top: 30px;
+    .tiny-button{
+      width: 19px;
+      height: 19px;
+      @include border-radius(20px);
+      background: $theme-color-4;
+      color: white;
+      display: block;
+      padding-top: 3px;
+      padding-left: 4px;
+      font-size: 11px;
+    }
+  }
+}
+
+.blog-meta-img {
+  float: left;
+  max-width: 250px;
+  margin-right: 20px;
+  margin-top: 10px;
+  border: 1px solid #CCC;
+}
+
+// signup follow
+
+.signup-follow-2 {
+  @include border-radius(99px);
+  width: 19px;
+  height: 19px;
+  overflow: hidden;
+}
+
+.signup-follow {
+  @include border-radius(99px);
+  position: relative;
+  text-indent: -9999px;
+  overflow: hidden;
+  width: 19px;
+  height: 19px;
+  z-index: 5;
+  .delete,.post{
+    width: 19px;
+    height: 19px;
+    background: $follow;
+    color: $follow-color;
+    display: block;
+    text-align: center;
+    font-size: 11px;
+    line-height: 17px;
+    border: $follow-border;
+    text-indent:0;
+  }
+  .delete{
+    @include border-radius(99px);
+    background-color: $delete;
+    border: $follow-border;
+    position: absolute;
+    top: 0;
+    right: 0;
+    .icon-cancel-circle:before {
+      width: 19px;
+      height: 19px;
+      font-family: FontAwesome;
+      font-style: normal;
+      font-weight: normal;
+      line-height: 1;
+      -webkit-font-smoothing: antialiased;
+      content: "\f004";
+      display: block;
+      position: absolute;
+      left: -2px;
+      top: 3px;
+      font-size: 11px;
+    }
+  }
+  .button.tiny-button {
+    @include border-radius(99px);
+    width: 19px;
+    height: 19px;
+    margin: 0;
+    padding: 0;
+    background: $follow;
+    color: $follow-color;
+    border: $follow-border;
+    float: left;
+    a.post {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 19px;
+      height: 19px;
+      padding-left: 20px;
+      font-family: FontAwesome;
+      font-style: normal;
+      font-weight: normal;
+      line-height: 1;
+      -webkit-font-smoothing: antialiased;
+      background: transparent;
+      &:before {
+        content: "\f004";
+        display: block;
+        position: absolute;
+        left: 2px;
+        top: 3px;
+        font-size: 11px;
+      }
+    }
+  }
+}
+
+[id^="signup_follow"] .signup-follow {
+  font-size: 0;
+  // Follow button
+  .button.tiny-button {
+    @include border-radius(99px);
+    width: 19px;
+    height: 19px;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    background: $follow;
+    color: $follow-color;
+    border: $follow-border;
+    overflow: hidden;
+    a.post {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 19px;
+      height: 19px;
+      padding-left: 20px;
+      font-family: FontAwesome;
+      font-style: normal;
+      font-weight: normal;
+      line-height: 1;
+      -webkit-font-smoothing: antialiased;
+      border: none;
+      &:before {
+        content: "\f004";
+        display: block;
+        position: absolute;
+        left: 2px;
+        top: 3px;
+        font-size: 11px;
+      }
+    }
+    a.delete {
+      @include border-radius(99px);
+      width: 19px;
+      height: 19px;
+      margin: 0;
+      padding: 0;
+      position: absolute;
+      top: 0;
+      right: 0;
+      background-color: $delete;
+      color: $follow-color;
+      overflow: hidden;
+      border: $delete-border;
+    }
+  }
+}
+
+// supporter nav which is shown if a user is signed in
+
+.supporter-nav {
+  margin: 0;
+  padding: 0;
+  li {
+    list-style: none;
+    color: $theme-color-4;
+    i, span {
+      color: $icon-button-color;
+      width: 25px;
+      height: 25px;
+      @include border-radius(25px);
+      background-color: $theme-color-4;
+      padding: 1px 0 0 5px;
+      margin-right: 5px;
+      display: inline-block;
+    }
+    &:last-child {
+      margin-bottom: 15px;
+    }
+    &:hover {
+      a{
+        color: black;
+      }
+      i, span{
+        background-color: black;
+        color: $ltgrey;
+      }
+    }
+    a {
+      color: $theme-color-4;
+      padding: 15px 15px 15px 0;
+      display: block;
+    }
+  }
+}
+
+.signin-wrap{
+  margin-bottom: 10px;
+  h3 {
+    font-size: 18px;
+    text-transform: $headline-transform;
+    font-weight: 500;
+    margin-bottom: 10px;
+    margin-top: 30px;
+    color: $twocolumn-color;
+    &:first-of-type {
+      margin-top: 0px;
+    }
+  }
+}
+
+.with-background .signin-wrap h3 {
+  color: $desktop-site-color;
+}
+
+.supporter-nav-signin{
+  padding: 0;
+  margin: 0;
+  i{
+    width: 40px;
+    height: 40px;
+    display: block;
+    color: white;
+    @include border-radius(40px);
+    background-color: black;
+    text-align: center;
+    line-height: 40px;
+    @if lightness(#000) == lightness($desktop-site-bg) {
+      background-color: #333;
+    }
+  }
+  li{
+    display: inline-block;
+  }
+  li:first-child{
+    i{
+      background-color: $facebook;
+    }
+  }
+  li:nth-child(2){
+    i{
+      background-color: $twitter;
+    }
+  }
+}
+
+.admin-panel{
+  margin-top: 25px;
+}
+.admin-panel, .action-panel{
+  background: $ltgrey;
+  padding: 30px;
+  margin-bottom: 25px;
+  h4{
+    text-transform: $headline-transform;
+    border-bottom: 2px solid $theme-color-4;
+    padding: 15px 0;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+}
+
+.supporter-nav-button {
+  margin: 10px 0;
+  text-align: center;
+  font-size: 18px;
+  width: 100%;
+  line-height: 30px;
+  padding: 20px;
+  background-color: $supporter-nav-button-one;
+  color: $supporter-nav-color-one;
+  border-bottom: $supporter-nav-button-border;
+  &:nth-child(2){
+    background-color: $supporter-nav-button-two;
+    color: $supporter-nav-color-two;
+    &:hover {
+      @if lightness($icon-button-color) > 50% {
+        background-color: darken($theme-color-1, 5);
+      }
+      @else {
+        background-color: lighten($theme-color-1, 5);
+      }
+    }
+  }
+  &:nth-child(3){
+    background-color: $supporter-nav-button-three;
+    color: $supporter-nav-color-three;
+    &:hover {
+      @if lightness($icon-button-color) > 50% {
+        background-color: darken($theme-color-1, 5);
+      }
+      @else {
+        background-color: lighten($theme-color-1, 5);
+      }
+    }
+  }
+}
+
+// rules link shown near comment box
+
+.review-rules {
+  display: block;
+  padding: 10px 15px 0 18px;
+  font-size: 12px;
+}
+
+// follow page link shown in page stream
+
+.page-follow {
+  font-size: 13px;
+  font-weight: $headline-weight;
+  margin: 0 0 15px 0;
+  text-transform: lowercase;
+  font-style: italic;
+  i{
+    width: 20px;
+    height: 20px;
+    background-color: $theme-color-4;
+    @include border-radius(20px);
+    color: white;
+    padding-left: 5px;
+    padding-top: 4px;
+    margin-left: 6px;
+  }
+}
+
+// optional header image uploaded in site settings
+
+.header-image {
+  max-width: 100%;
+  margin-bottom: 50px;
+  margin-top: -30px;
+}
+
+//message that appears when a form is submitted
+.form-submitting {
+  padding: 15px 7px 0 0;
+  img {
+    margin-right: 6px;
+  }
+}
+
+// suggestion box tags
+
+.tag-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  margin-bottom: 25px;
+  li {
+    display: inline;
+    line-height: 37px;
+    white-space: nowrap;
+    a {
+      padding: 5px 10px;
+      margin: 0 3px 0 0;
+      text-decoration: none;
+      color: white;
+      text-transform: capitalize;
+      background-color: $theme-color-4;
+      font-style: italic;
+    }
+  }
+  li a:hover {
+    background-color: darken($theme-color-2, 10);
+  }
+  li.current a, li.current a:hover {
+    color: #fff;
+    background-color: $theme-color-1;
+    font-style: normal;
+  }
+}
+
+// layout for share buttons at the bottom of most pages
+
+.sharetable {
+  min-height: 39px;
+  .facebook-cell,
+  .twitter-cell {
+    float: left;
+    text-align: left;
+    vertical-align: top;
+  }
+  .facebook-cell {
+    padding: 0 20px 15px 0;
+    width: 350px;
+  }
+  .twitter-cell {
+    padding: 0 20px 0 0;
+    width: 75px;
+
+    a {
+      text-indent: -999em;
+      display: inline-block;
+    }
+  }
+}
+
+// political/social capital displayed next to names
+
+.pc {
+  padding: 2px 5px;
+  font-size: 12px;
+}
+
+// yes or no indicator on recuiter page
+
+.off-button-small {
+  font-size: 11px;
+  color: $red;
+}
+
+.on-button-small {
+  font-size: 11px;
+  color: $green;
+}
+
+.subhead {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+// applied to alerts or warnings
+
+.red {
+  color: $red;
+}
+
+small {
+  font-size: 85%;
+}
+
+// timestamp on activity
+
+.timeago {
+  font-size: 65%;
+}
+
+// tags users can select on suggestion page
+
+.suggestion-tag-list {
+  margin: 0;
+  padding: 0;
+  li {
+    display: inline-block;
+    list-style: none;
+    text-align: center;
+    margin:  0 0 10px 0;
+  }
+  a {
+    padding: 5px 0 15px 0;
+    text-decoration: none;
+    color: black;
+    text-transform: capitalize;
+    .tag-count {
+      color: #777;
+    }
+  }
+}
+
+.leaderboard {
+  overflow: hidden;
+  width: 100%;
+  display: block;
+  margin-bottom: 25px;
+  h4 {
+    margin-bottom: 15px;
+  }
+  &.last {
+    margin-bottom: 0;
+  }
+}
+
+// list of people on leaderboards, follows and following pages
+
+.people-list {
+  padding: 14px 10px 10px 10px;
+  margin-bottom: 5px;
+  min-height: 78px;
+  position: relative;
+  margin: 25px 0 25px 50px;
+  .people-list-pic {
+    margin: -11px 10px 0 -60px;
+    float: left;
+    height: 72px;
+    width: 72px;
+    @include border-radius(70px);
+    overflow: hidden;
+    position: relative;
+
+  }
+  .people-name {
+    font-weight: bold;
+  }
+  .leaderboard-rank, .people-pc {
+    font-size: 12px;
+    text-align: center;
+    display: inline-block;
+    margin-left: 10px;
+    margin-right: 10px;
+    letter-spacing: 1px;
+    font-style: italic;
+  }
+  .people-list-follow {
+    text-align: right;
+    font-size: 13px;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+  }
+  .network {
+    display: inline-block;
+    margin-top: 5px;
+    font-size: 11px;
+    color: white;
+    line-height: 19px;
+    text-align: center;
+    a{ color: white; }
+  }
+  .fa-facebook{
+    height: 19px;
+    width: 19px;
+    @include border-radius(20px);
+    display: block;
+    background-color: $facebook;
+    line-height: 19px;
+  }
+  .fa-twitter{
+    height: 19px;
+    width: 19px;
+    @include border-radius(20px);
+    display: block;
+    background-color: $twitter;
+    line-height: 19px;
+  }
+}
+
+.supporter-follow-details {
+  font-size: 0.9em;
+  overflow: hidden;
+  .network {
+    padding-right: 10px;
+  }
+  .addreaction, .addreaction-right, .plus, .plus-left {
+    font-size: 1em;
+  }
+}
+// alternating background color used in people list
+
+.odd {
+  background-color: $ltgrey;
+  color: #000;
+}
+
+// tracking url on recruiting page
+
+#tracking_link {
+  width: 100%;
+  font-weight: bold;
+  font-size: 17px;
+}
+
+.recruit-wrap{
+  background: $ltgrey;
+  padding: 25px;
+  margin-top: 15px;
+}
+
+// if a page has tags
+
+.page-tags {
+  margin-top: 15px;
+  .icon-tag {
+    display: inline-block;
+    padding-top: 5px;
+    font-size: 12px;
+  }
+}
+
+.page-tag-background {
+  display: inline-block;
+}
+
+.page-tag {
+  text-indent: 40px;
+  background-color: $theme-color-1;
+  font-size: 11px;
+  color: white;
+  padding: 2px 5px;
+  @include border-radius(2px);
+  white-space: nowrap;
+  a {
+    color: $icon-button-color;
+  }
+}
+
+// site rules
+
+.rule-list {
+  padding-left: 20px;
+  li {
+    padding-bottom: 15px;
+  }
+  .rule {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  p {
+    margin: 5px 0;
+  }
+}
+
+// paid membership options
+
+ul.membership-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  li.membership {
+    position: relative;
+    text-align: center;
+    list-style: none;
+    background-color: $ltgrey;
+    @include border-radius(2px);
+    padding: 15px;
+    display: inline-block;
+    margin: 0 10px 15px 0;
+    width: 100%; // 236px ÷ 984px
+    .membership-bottom {
+      background-color: #444;
+      color: #ccc;
+    }
+    .membership-blurb {
+      padding: 15px 0;
+      font-size: 13px;
+      line-height: 16px;
+    }
+    .buy {
+      text-align: center;
+    }
+    .badge {
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+  }
+}
+
+// stat boxes on political capital and recruiting pages
+
+.stat-boxes {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  .stat-box {
+    font-family: $headline-font;
+    min-width: 105px;
+    float: left;
+    text-align: center;
+    color: $icon-button-color;
+    background-color: $theme-color-4;
+    margin-right: 0;
+    margin-bottom: 10px;
+    min-height: 65px;
+    border: 1px solid white;
+    .stat-box-inner {
+      padding: 6px;
+      min-height: 30px;
+      .stat {
+        margin-top: 0px;
+        font-size: 24px;
+        line-height: 30px;
+        font-weight: $headline-weight;
+        &.no-label {
+          padding: 8px;
+        }
+      }
+      .stat-box + .stat-box {
+        background: #000;
+        border-left: none;
+      }
+    }
+    .label {
+      font-size: 0.8em;
+      line-height: 1.1em;
+      white-space: nowrap;
+    }
+  }
+}
+
+// answers on faq pages
+
+.answer-wrap {
+  background-color: $theme-color-4;
+  color: #fff;
+  padding: 15px;
+  width: 100%;
+  p:first-child {
+    margin: 0;
+  }
+  .answer-a {
+    float: left;
+    width: 25px;
+    height: 25px;
+    @include border-radius(25px);
+    text-align: center;
+    margin-right: 10px;
+    background: $theme-color-1;
+    font-weight: bold;
+  }
+  .answer {
+    float: left;
+    width: 91%;
+  }
+  .official-response {
+    font-weight: bold;
+  }
+}
+
+.answer {
+  .icon-up-dir:before {
+    margin: 0;
+    font-size: 20px;
+    line-height: 7px;
+    padding: 5px 0 0 15px;
+    color: $theme-color-4;
+    display: block;
+    vertical-align: bottom;
+  }
+}
+
+// list of questions on faq pages
+
+.question-list {
+  margin: 0;
+  padding: 0 0 0 15px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+  li {
+    list-style: disc;
+    margin: 0;
+    padding: 0 0 15px 0;
+    &:last-child {
+      padding: 0;
+    }
+  }
+}
+
+.left-column-narrow {
+  .question-list {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 0;
+  }
+}
+
+.faq .excerpt {
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  margin-top: 0 !important;
+}
+
+// share box which appears after a user submits an action
+
+.flash-share {
+  margin: 0 0 25px 0;
+  .h3 {
+    font-size: 24px;
+    font-family: $headline-font;
+    background-color: $theme-color-3;
+    color: white;
+    padding: 15px;
+    margin: 0;
+  }
+  .share {
+    background-color: $ltgrey;
+    padding: 15px 15px 5px 15px;
+    box-shadow: 0 0 9px #999;
+  }
+}
+
+.pattern {
+  overflow: hidden;
+  & > .wrap {
+  }
+}
+
+// used to slide out off canvas nav
+
+.wrap {
+  position: relative;
+  transition: all 0.3s ease-out;
+  &.active {
+    left: 16em;
+  }
+}
+
+// hide one column container if these wide templates are used
+
+.page-pages-show-faq-wide, .page-pages-show-question-wide {
+  .right-column .is_following {
+    display: none;
+  }
+}
+
+// content only visible in mobile viewport
+
+.mobile-visible {
+  display: block;
+}
+
+// content only visible in desktop viewport
+
+.desktop-visible {
+  display: none;
+}
+
+.comment .form {
+  @include nb-clearfix;
+}
+
+// making sure google map on calendar page resizes properly
+
+#google_map {
+  img {
+    max-width: none;
+  }
+  * {
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+  }
+}
+
+// share box container, shown when a user clicks the share button
+
+.share-container {
+  margin-top: 15px;
+  padding: 15px;
+  background-color: $ltgrey;
+  .share-close{
+    background: transparent;
+    color: $theme-color-4;
+  }
+  .twitter-share-link{
+    background-color: $twitter;
+    color: #fff;
+  }
+  .facebook-share-link{
+    background-color: $facebook;
+    color: #fff;
+  }
+  .email-share-link{
+    background-color: $theme-color-1;
+    color: $icon-button-color;
+  }
+}
+
+// invoice page table
+
+td.invoice-total {
+  font-weight: bold;
+  background-color: white !important;
+  text-align: right;
+}
+
+td.invoice-quantity {
+  padding-left: 4%;
+}
+
+h4.expander-head {
+  background-color: $ltgrey;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.fb-like-box, .fb-like-box span, .fb-like-box.fb_iframe_widget span iframe, .fb-page, .fb-page span, .fb-page.fb_iframe_widget span iframe {
+  width: 100% !important;
+}
+
+.email-form {
+  white-space: nowrap;
+}
+
+// flash messages
+
+#flash {
+  .notice {
+    padding: 8px 14px;
+    margin-bottom: 20px;
+    background-color: $theme-color-3;
+  }
+  .flash-message {
+    display: inline-block;
+  }
+  button.flash-close {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 16px;
+    padding: 0;
+    margin: 0;
+    float: right;
+    color: #000;
+    opacity: .2;
+    cursor: pointer;
+    border: 0;
+    background: transparent;
+    -webkit-appearance: none;
+    &:hover {
+      cursor: pointer;
+      opacity: .4;
+    }
+  }
+  .success {
+    background-color: $theme-color-1;
+    color: white;
+  }
+  .error {
+    background-color: $red;
+    color: white;
+  }
+  .info {
+    background-color: $theme-color-4;
+    color: white;
+  }
+}
+
+// page specific tweaks
+
+.page-profiles-show {
+  .left-column {
+    .supporter-pic-left {
+      img, .pc {
+        @include border-radius(0px);
+      }
+    }
+    .supporter-pic-right {
+      font-size: 100%;
+      padding: 0 0 0 10px;
+    }
+    .progress {
+      margin-bottom: 0;
+    }
+  }
+  h4 {
+    margin-bottom: 1em;
+  }
+}
+
+.page-profiles-show-wide {
+  .right-column {
+    .progress {
+      margin-bottom: 0;
+    }
+    .bar-goal {
+      text-align: center;
+      margin-bottom: 15px;
+    }
+  }
+}
+
+.page-pages-show-signup .page-tags {
+  margin-top: 20px;
+}
+
+.page-pages-show-voter-registration .iframe-wrapper {
+  -webkit-overflow-scrolling: touch;
+  overflow: auto;
+  position:relative;
+  left: -6%;
+  width: 112%;
+}
+
+.user-session-form-container {
+  .oauth-links {
+    min-width: 100px;
+    margin-bottom: 20px;
+    a {
+      display: inline-block;
+      margin-bottom: 10px;
+      &.login-button-facebook {
+        width: 45px;
+        height: 45px;
+        background-image: url('facebook.png');
+        background-size: 45px 45px;
+      }
+      &.login-button-twitter {
+        width: 45px;
+        height: 45px;
+        background-image: url('twitter.png');
+        background-size: 45px 45px;
+      }
+    }
+  }
+  .row-fluid:after {
+    margin-bottom: 0;
+  }
+}
+
+#event_rsvp_guests_count, input.quantity {
+  width: 20%;
+}
+
+.event-detail,
+.event_detail{
+  margin: 15px 0;
+  clear: both;
+  .subtext{
+    img{
+      @include border-radius(25px);
+    }
+  }
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.public-posting-form {
+  margin-bottom: 45px;
+}
+
+.blog, .content_tags_show {
+  hr:last-child {
+    display: none;
+  }
+}
+
+.blog{
+  .span5 {
+    height: 225px;
+    background-size: cover !important;
+    border: $feature-border;
+  }
+  .span7 {
+    margin-top: 10px;
+  }
+  h3{
+    font-family: $font;
+    text-transform: none;
+    font-size: 30px;
+    line-height: 34px;
+    margin-bottom: 10px;
+    color: black;
+  }
+  hr{
+    margin: 50px 0;
+  }
+  .icon-button i {
+    line-height: 25px;
+    display: inline-block;
+    border: none;
+    &:before {
+      margin-left: 1px;
+    }
+  }
+}
+
+.read-more, .read_more{
+  display: inline-block;
+  font-style: italic;
+  text-transform: lowercase;
+  a{
+    color: $theme-color-4;
+  }
+}
+
+.icon-button{
+  background: transparent;
+  color: $theme-color-4;
+  padding-left: 0;
+  display: inline;
+  vertical-align: baseline;
+  text-transform: $headline-transform;
+  i{
+    width: 25px;
+    height: 25px;
+    background: $icon-button-bg;
+    color: $icon-button-color;
+    border: $icon-button-border;
+    @include border-radius(99px);
+    overflow: hidden;
+    display: block;
+    text-align: center;
+    line-height: 22px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 8px;
+  }
+  &:hover{
+    background: transparent;
+    i{
+      background: $theme-color-1;
+    }
+  }
+}
+
+.suggestion-page-form-expanded {
+  display: none;
+}
+
+.distance {
+  .within {
+    display: none;
+  }
+}
+
+.released-at {
+  font-size: 12px;
+  font-weight: 700;
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+.contact {
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.content-pages-show-political-capital, .content-pages-show-political-capital-wide {
+  // remove if you wish to show icons on descriptions
+  [class^="icon-"] {
+    display: none;
+  }
+}
+
+.comment {
+  h3 {
+    padding-bottom: 10px;
+  }
+  h4{
+    color: $theme-color-3;
+    text-transform: $headline-transform;
+    font-weight: 500;
+  }
+}
+
+.page-user-sessions-new-wide {
+  h2 {
+    font-size: 24.5px;
+    line-height: 25px;
+    text-align: center;
+  }
+}
+
+.or-button{
+  display: none;
+  width: 25px;
+  height: 25px;
+  @include border-radius(25px);
+  background: white;
+  border: 2px solid $theme-color-3;
+  font-style: italic;
+  text-align: center;
+  position: absolute;
+  left: -14px;
+  top: 45%;
+  font-size: 12px;
+  color: $theme-color-3;
+  line-height: 20px;
+}
+
+.signin-with-facebook {
+  display: inline-block;
+  margin-right: 5px;
+  margin-bottom: 10px;
+}
+
+.signin-with-twitter {
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+// forces groups of words to break together
+
+.inline-block {
+  display: inline-block;
+}
+
+// featured content slider
+
+.page-features {
+  position: relative;
+  margin: 35px 0 100px;
+  box-shadow: 0 0 8px -2px #000;
+  border: $feature-border;
+  .single-feature, .multiple-features {
+    display: block;
+    width: 100%;
+    height: 360px;
+    background-size: cover !important;
+  }
+  img {
+    width: 100%;
+  }
+  .feature-slides {
+    position: relative;
+    height: auto!important;
+  }
+  .slider-loading {
+    width: auto;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+    top: 20%;
+    left: 44%;
+    position: absolute;
+  }
+  .slides {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    visibility: hidden;
+    a {
+      display: block;
+    }
+    li {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      position: relative;
+    }
+  }
+  .features-headline {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 80px;
+    z-index: 2;
+    font-size: 36px;
+    line-height: 40px;
+    text-transform: $headline-transform;
+    color: #fff;
+    width: 90%;
+    text-align: center;
+    margin: 0px auto;
+    display: block;
+    font-family: $headline-font-alt;
+    text-shadow: 0 0 15px #000;
+    em{
+      font-family: $font;
+      font-weight: 500;
+      font-size: 24px;
+      text-transform: none;
+    }
+  }
+  // If you want labels to display beneath your images, remove display: none; below //
+  .flex-control-paging {
+    display: none;
+    background-color: rgba(0, 0, 0, 0.1);
+    height: 40px;
+    line-height: 40px;
+    li {
+      display: inline-block;
+      color: black;
+      margin-right: 5px;
+      cursor: pointer;
+      a {
+        color: black;
+        padding: 0 15px;
+        display: block;
+
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+    .flex-active a {
+      display: block;
+      color: white;
+    }
+    .flex-active {
+      background-color: $theme-color-3;
+    }
+  }
+}
+
+// previous and next arrows on featured content slider
+
+.flex-direction-nav {
+  position: absolute;
+  z-index: 9999;
+  width: 100%;
+  top: 100%;
+  li {
+    list-style: none;
+    position: absolute;
+    right:0;
+    &:first-child {
+      left: 0;
+      right: auto;
+    }
+  }
+}
+
+.flex-prev, .flex-next {
+  display: block;
+  position: absolute;
+  top: 41%;
+  z-index: 9999;
+  font-size: 36px;
+  padding: 5px;
+  border: $flex-border;
+  background: $flex-background;
+  @if lightness($flex-color) == lightness($site-bg) and $flex-background == transparent {
+    color: $site-color;
+  } @else {
+    color: $flex-color;
+  }
+}
+
+.flex-prev {
+  left: 0;
+}
+
+.flex-next {
+  right: 0;
+}
+
+// pagination
+
+.pagination {
+  &.loading {
+    ul:after {
+      display: inline-block;
+      content: " ";
+      background-image: url('/assets/bert-loader-small.gif');
+      vertical-align: super;
+      width: 16px;
+      height: 11px;
+      margin-left: 12px;
+    }
+  }
+  ul {
+    box-shadow: none;
+    li {
+      display: inline-block;
+    }
+  }
+}
+
+.form-errors {
+  background-color: $red;
+  @include border-radius(2px);
+  color: #fff;
+  font-size: 13px;
+  line-height: 17px;
+  margin-bottom: 15px;
+  padding: 10px;
+  list-style-type: none;
+  display: none;
+}
+
+// flag content form
+.flag-content {
+  margin-top: 15px;
+}
+
+// homepage widgets
+
+ul.homepage_excerpt-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  li.excerpt-block {
+    list-style: none;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    overflow: hidden;
+    position: relative;
+    &:first-child > hr {
+      display: none;
+    }
+    hr{
+      width: 100%;
+    }
+    .widget-icon{
+      width: 50px;
+      height: 50px;
+      display: block;
+      @include border-radius(50px);
+      color: white;
+      font-size: 24px;
+      text-align: center;
+      background: $theme-color-4;
+      margin: 0px auto;
+      line-height: 50px;
+    }
+    .event-map {
+      margin: 20px 0;
+    }
+    .event-block {
+      margin: 20px 0;
+      padding-left: 15px;
+    }
+    .event-venue {
+      margin: 0;
+    }
+    .progress {
+      margin-bottom: 0;
+    }
+    ul.question-list {
+      margin: 15px 0 0 15px;
+      border: none;
+    }
+    .leaderboard:last-child {
+      margin-bottom: 0;
+    }
+    .rule-list li:last-child {
+      padding: 0;
+    }
+    .answer-wrap {
+      background-color: $theme-color-4;
+    }
+    .answer .icon-up-dir:before  {
+      color: $theme-color-4;
+    }
+    .answer img{
+      width: 44px;
+      height: 44px;
+      @include border-radius(50px);
+    }
+  }
+  h3.excerpt-type {
+    font-size: 14px;
+    font-weight: 700;
+    font-family: $font;
+    margin-bottom: 50px;
+    font-style: italic;
+    text-transform: lowercase;
+    text-align: center;
+    a {
+      color: $theme-color-4;
+      text-decoration: none;
+    }
+  }
+  h4.excerpt-title {
+    font-family: $font;
+    font-size: 24px;
+    margin: 15px 0;
+    font-weight: 500;
+  }
+  .continue {
+    display: block;
+    margin: 1em 0;
+    text-align: center;
+  }
+  #petition-content{
+    .petition{
+      font-style: italic;
+      margin-bottom: 30px;
+    }
+  }
+  .blog-widget{
+    background: white;
+    margin-bottom: 20px;
+    .byline{
+      margin-top: 0;
+    }
+    .image{
+      height: 200px;
+      background-size: cover !important;
+    }
+    .blog-widget-content{
+      padding: 20px;
+    }
+  }
+  .blog-post-widget {
+    .share-bar {
+      padding-left: 20px;
+    }
+    .blog-widget-content{
+      padding: 20px;
+    }
+    .byline{
+      margin-top: 0;
+    }
+    .blog-post-widget-image{
+      height: 255px;
+      background-size: cover !important;
+    }
+    .blog-post-widget-right{
+      margin-left: 0;
+      background-color: white;
+    }
+    .blog-post-widget-full {
+      background-color: white;
+      color: black;
+    }
+  }
+}
+
+// page specific styles
+
+.content-pages-show-blog-post, .content-pages-show-blog-post-wide{
+  h2{
+    font-family: $font;
+    text-transform: none;
+    font-size: 36px;
+    line-height: 40px;
+  }
+}
+
+#petition-content{
+  font-style: italic;
+}
+
+.suggestion-box{
+  h3{
+    font-family: $font;
+    text-transform: none;
+    color: black;
+    font-size: 30px;
+    line-height: 34px;
+    font-weight: 500;
+    a{ color: black; }
+  }
+  .answer{
+    img{
+      width: 44px;
+      height: 44px;
+      @include border-radius(50px);
+    }
+  }
+  .answer-by {
+    & > a {
+      display: inline-block;
+    }
+    & > strong {
+      display: inline-block;
+      margin-left: 5px;
+      vertical-align:middle;
+      width: calc(100% - 55px);
+    }
+  }
+}
+
+.event-map img {
+  max-width: none;
+}
+
+// styles when the site has a background image
+
+.with-background{
+  .header-container{
+    background: white;
+  }
+  .menu-link .icon-menu {
+    color:#000;
+  }
+  .title {
+    a {
+      color: #000;
+    }
+  }
+  .onecolumn-container, .twocolumn-container .left-column, .twocolumn-container .right-column .supporter-pic, .admin-panel, .action-panel, .point-pic-right, .box{
+    @include transparent-bg;
+  }
+  .onecolumn-container{
+    width: 100%;
+    padding: 30px;
+    border: 0;
+  }
+  .twocolumn-container{
+    .left-column{
+      padding: 25px;
+    }
+  }
+  .form-wrap{
+    background: white;
+    color: black;
+  }
+  .homepage_excerpt-list{
+    .excerpt-block{
+      .widget-icon{
+        background: white;
+        color: $theme-color-2;
+      }
+      hr{
+        border: 0;
+      }
+      .right{
+        border: 0;
+      }
+    }
+    .excerpt-type{
+      a{
+        color: black;
+      }
+    }
+  }
+
+  .petition-widget, .calendar-widget, .donate-widget, .endorsement-widget, .event-widget, .faq-widget, .feedback-widget, .leadboard-widget, .moneybomb-widget, .press-release-widget, .question-widget, .recruiting-widget, .rules-widget, .signup-widget, .suggestion-box-widget, .suggestion-widget, .survey-widget, .volunteer-widget, .vote-pledge-widget{
+    background: white;
+    padding: 30px;
+  }
+
+  .activities li .activity{
+    background: white;
+  }
+
+  .share-bar{
+    padding: 10px 20px;
+    background: $share-bar-bg;
+  }
+
+  .blog-widget, .blog-post-widget {
+    .share-bar {
+      background: $share-bar-bg;
+    }
+  }
+
+  .blog{
+    .content-wrap{
+      background: white;
+      padding: 20px;
+    }
+    h3{
+      margin-top: 20px;
+    }
+    .post-image{
+      margin-bottom: 0;
+    }
+  }
+}
+
+@media (max-width: 400px) {
+   .blog-meta-img {
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+}
+
+@media only screen and (max-width : 320px) {
+  .title {
+    font-size: 41px;
+    font-size: 13vmin;
+    line-height: 1.1;
+  }
+  .radio-inline {
+    label.radio {
+      min-width: 114px;
+    }
+    span:nth-child(2n) label.radio {
+      margin-right: 0;
+    }
+  }
+  #slider-cards {
+    .slider-card-profile {
+      background: transparent;
+    }
+  }
+}
+
+// labeled tag container on signup pages
+.labeled-tags-container {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+// donation link
+
+@media (min-width: 766px) {
+  li.donation-link {
+    background-color: $donation-link-background;
+    float: $donation-link-float;
+    line-height: $donation-link-line-height;
+    margin: $donation-link-margin;
+    &:hover a {
+      background-color: $donation-link-hover;
+    }
+  }
+}
+
+// political theme
+
+footer .width-container {
+  background-image: $footer-embellishment;
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  background-size: 120px;
+  padding-bottom: $footer-embellishment-padding;
+}
+
+
+// Donation v2 page
+//-------------------------------------------
+.page-type-donation-v2 .page-pages-show-donation-v2-wide {
+  .card-error-container .card-error {
+    padding-top: 5px;
+    color: $red;
+  }
+  span.error-message {
+    color: $red;
+  }
+  .ticket-list {
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+      margin: 10px 0;
+      li {
+        font-size: 20px;
+        line-height: 30px;
+        font-style: italic;
+        font-weight: bold;
+      }
+    }
+  }
+  a.clear-order {
+    font-style: italic;
+  }
+  .onecolumn-container,
+  .with-background .onecolumn-container {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 0;
+    padding: 20px !important;
+  }
+  .header-container .header-signup,
+  .footer-signup {
+    display: none !important;
+  }
+  .form-wrap {
+    padding: 15px 25px 25px;
+  }
+  select {
+    margin-top: 0;
+  }
+  .intro {
+    margin: 30px 0 20px;
+  }
+  .row-fluid > h4 {
+    margin-top: 30px;
+  }
+  .row-fluid:first-of-type > h4 {
+    margin-top: 0;
+  }
+  h2.single-amount {
+    padding: 10px 0;
+  }
+  .donation-v2-occurence-radio {
+    margin-top: 10px;
+    label {
+      margin: 0 5px 5px 0;
+    }
+    input[type="radio"] {
+      margin-left: auto !important;
+    }
+  }
+
+  .donation-other-input-container {
+    position: relative;
+    .currency-symbol {
+      position: absolute;
+      top: 50%;
+      left: 8px;
+      font-size: 20px;
+      transform: translate(0, -50%);
+    }
+    input {
+      padding-left: 20px;
+      font-size: 20px;
+      height: 54px;
+      margin-bottom: 0;
+      &.nb_donation_v2_amount_RM {
+        padding-left: 40px;
+      }
+    }
+  }
+  .radio-inline.donation-v2-amounts {
+    > span {
+      position: relative;
+    }
+    input[type="radio"] {
+      clip: rect(0 0 0 0);
+      clip-path: inset(50%);
+      height: 1px;
+      overflow: hidden;
+      position: absolute;
+      white-space: nowrap;
+      width: 1px;
+    }
+    label.radio {
+      background-color: $theme-color-3;
+      color: white;
+      display: inline-block;
+      min-width: 92px;
+      padding: 15px 5px;
+      font-family: $headline-font;
+      font-style: normal;
+      font-size: 19px;
+      text-align: center;
+      margin: 5px 5px 10px 0;
+      &:hover {
+        background-color: lighten($theme-color-3, 5);
+      }
+    }
+    input[type="radio"]:checked+label {
+      background-color: $theme-color-1;
+      color: $icon-button-color;
+    }
+  }
+  .donation-v2-options label {
+    display: inline;
+  }
+  .submit-container {
+    margin-top: 30px;
+    @include border-radius(2px);
+    text-align: center;
+    .donation-v2-amount {
+      font-size: 40px;
+      text-align: center;
+      margin-bottom: 25px;
+      width: 100%;
+      min-height: 46px;
+      line-height: initial;
+      span {
+        opacity: 1;
+        font-weight: bold;
+        display: inline-block;
+        .nb_donation_v2_interval {
+          font-size: 17px;
+          font-weight: normal;
+          &.hidden {
+            display: none;
+            opacity: 0;
+          }
+        }
+        &.hidden {
+          opacity: 0;
+          display: none;
+          + span {
+            font-size: 22px;
+            font-weight: normal;
+          }
+          ~ .nb_donation_v2_interval {
+            display: none;
+          }
+        }
+      }
+      .nb_donation_v2_amount {
+        margin-left: 4px;
+      }
+    }
+    input.submit-button {
+      padding: 10px 30px;
+      font-size: 18px;
+    }
+  }
+}
+@media (min-width: 570px) {
+  .page-type-donation-v2 .page-pages-show-donation-v2-wide .onecolumn-container {
+    width: 513px;
+  }
+}
+@media (min-width: 768px) {
+  .page-type-donation-v2 .page-pages-show-donation-v2-wide {
+    .onecolumn-container {
+      margin-bottom: 100px;
+    }
+    .donation-v2-options {
+      position: relative;
+      .donation-v2-occurence-radio {
+        margin-top: 0;
+        position: absolute;
+        top: 50%;
+        transform: translate(0, -50%);
+      }
+    }
+  }
+}
+
+.option-heading {
+  margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .page-type-donation-v2 .page-pages-show-donation-v2-wide {
+    .radio-inline.donation-v2-amounts {
+      > span {
+        position: relative;
+        width: 50%;
+        float: left;
+        &:nth-child(even) {
+          padding: 0 0 0 7px;
+        }
+        &:nth-child(odd) {
+          padding: 0 7px 0 0;
+        }
+        label.radio {
+          width: 100%;
+        }
+      }
+    }
+    .donation-v2-options.single-amount-any-frequency {
+      padding-top: 10px;
+    }
+    .donation-v2-options,
+    .radio-inline.donation-v2-amounts + .donation-v2-options {
+      clear: left;
+      padding-top: 30px;
+      .span6 {
+        position: relative;
+        width: 50%;
+        float: left;
+        margin: 0;
+        &:first-child {
+          padding-right: 7px;
+        }
+        &:last-child {
+          padding-left: 7px;
+        }
+      }
+      .donation-v2-occurence-radio {
+        padding: 0;
+        width: 100%;
+        position: static;
+        transform: none;
+        margin: 0;
+        > span {
+          position: relative;
+          display: inline-block;
+          float: left;
+          width: 50%;
+          &:first-child {
+            padding-right: 7px;
+          }
+          &:last-child {
+            padding-left: 7px;
+          }
+        }
+        input[type="radio"] {
+          display: none;
+        }
+        label.radio {
+          background-color: $theme-color-3;
+          color: white;
+          display: inline-block;
+          width: 100%;
+          height: 54px;
+          line-height: 54px;
+          font-family: $headline-font;
+          font-style: normal;
+          font-size: 19px;
+          text-align: center;
+          margin: 0;
+          &:hover {
+            background-color: lighten($theme-color-3, 5);
+          }
+        }
+        input[type="radio"]:checked+label {
+          background-color: $theme-color-1;
+          color: $icon-button-color;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 560px) {
+  .page-type-donation-v2 .page-pages-show-donation-v2-wide {
+    .radio-inline.donation-v2-amounts + .donation-v2-options .span6 {
+      width: 100%;
+      &:first-child {
+        padding: 0;
+      }
+      &:last-child {
+        padding: 14px 0 0 0;
+      }
+    }
+  }
+}
+
+/* reCaptcha
+-----------------------------------------------*/
+.grecaptcha-badge {
+  z-index: 9994;
+}
+#recaptcha-input {
+	margin-top: 14px;
+}
+.g-recaptcha {
+	> * {
+		margin: 0 auto;
+	}
+}

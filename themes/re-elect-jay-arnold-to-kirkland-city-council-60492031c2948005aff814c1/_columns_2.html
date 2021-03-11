@@ -1,0 +1,78 @@
+<div class="twocolumn-container clearfix">
+
+  <div class="left-column">
+
+    {{ content_for_notifications }}
+
+    <div class="content-{{ request.template  | replace: '_', '-' }}">
+      {% yield %}
+    </div>
+
+  </div>
+  <!-- .left_column -->
+
+  <hr class="mobile-visible"/>
+
+  <div class="right-column">
+
+    {% if request.logged_in? %}
+
+    {% include "supporter_nav" %}
+
+    {% else %}
+
+    <div class="signin-wrap">
+
+      <h3>Sign in with:</h3>
+      <ul class="supporter-nav-signin">
+        <li><a href="{{ request.facebook_connect_url }}"><i class="fa fa-facebook"></i></a>
+        </li>
+        <li><a href="{{ request.twitter_connect_url }}"><i class="fa fa-twitter"></i></a></li>
+        <li><a href="/login"><i class="fa fa-envelope"></i></a></li>
+      </ul>
+
+      {% if request.sorta_logged_in? %}
+      {% else %}
+        <h3>Or sign up:</h3>
+      {% endif %}
+      {% if site.has_signup_page? %}
+        {% include "signup_form" with site.signup_page %}
+      {% endif %}
+
+    </div>
+
+
+    {% if site.has_button1? %}
+    <a class="button supporter-nav-button" href="{{ site.button1_page.full_url_with_profile_recruiter }}">{{ site.button1_text }}</a>
+    {% endif %}
+
+    {% if site.has_button2? %}
+    <a class="button supporter-nav-button" href="{{ site.button2_page.full_url_with_profile_recruiter }}">{{ site.button2_text }}</a>
+    {% endif %}
+
+    {% if site.has_button3? %}
+    <a class="button supporter-nav-button" href="{{ site.button3_page.full_url_with_profile_recruiter }}">{{ site.button3_text }}</a>
+    {% endif %}
+
+    <div class="padtop padbottom">
+      {% if page and page.has_rss? %}
+      <div class="box">
+        <div class="padtop padbottom">
+          <a href="{{ page.rss_url }}"><i class="icon-rss"></i></a> <a href="{{ page.rss_url }}">Subscribe with RSS</a>
+        </div>
+      </div>
+      {% elsif page and page.has_parent? and page.parent.has_rss? %}
+      <div class="box">
+        <div class="padtop padbottom">
+          <a href="{{ page.parent.rss_url }}"><i class="icon-rss"></i></a>
+          <a href="{{ page.parent.rss_url }}">Subscribe with RSS</a>
+        </div>
+      </div>
+      {% endif %}
+    </div>
+
+    {% endif %}
+
+  </div>
+  <!-- .right-column -->
+</div> <!-- .twocolumn_container -->

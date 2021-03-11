@@ -1,0 +1,462 @@
+// bootsrap forms
+
+form {
+  padding: 0;
+  margin: 0; }
+
+label, input, button, select, textarea {
+  font-family: $font;
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 20px;
+  font-style: italic;
+  color: $charcoal;
+  }
+
+label {
+  display: block;
+  margin-bottom: 5px; }
+
+select,
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"],
+.uneditable-input {
+  margin-bottom: 10px;
+  max-width: 100%;
+}
+
+input[type="file"] {
+  margin: 10px 0;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  background-color: $theme-color-4;
+  border: none;
+  color: white;
+  font-style: italic;
+  line-height: 13px;
+  padding: 15px;
+  box-shadow: none;
+  max-width: 100%; }
+
+textarea {
+  min-height: 70px;
+  height: 70px;
+  width: 100%; }
+
+.input_checkbox {
+  input {
+    margin-right: 5px !important;
+    float: left;
+    width: auto;
+    }
+  }
+
+hr {
+  margin: 25px 0;
+  border: 0;
+  border-top: 1px solid #eeeeee;
+  border-bottom: 1px solid #ffffff;
+  }
+
+select, textarea, input {
+  display: inline-block;
+  padding: 10px;
+  font-size: 14px;
+  line-height: 20px;
+  color: $theme-color-4;
+  vertical-align: middle;
+  }
+
+textarea, input {
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  -webkit-appearance: none;
+  -webkit-border-radius:0
+  }
+
+textarea:focus, input:focus {
+  border-color: $theme-color-3;
+  outline: 0;
+  outline: thin dotted \9;
+}
+
+input[type="radio"], input[type="checkbox"] {
+  /* IE8-9 */
+  line-height: normal;
+}
+
+input[type="checkbox"] {
+  -webkit-appearance: checkbox;
+}
+
+input[type="radio"] {
+  -webkit-appearance: radio;
+}
+
+// prevents iOS from adding unwanted styles on submit buttons
+
+input[type="submit"] {
+  -webkit-appearance: none;
+}
+
+.radio input[type="radio"],
+.checkbox input[type="checkbox"] {
+  float: left;
+  margin: 3px 0 0 -20px;
+}
+
+.radio-inline, .checkbox-inline {
+  input[type="radio"], input[type="checkbox"] {
+    display: none;
+    margin: 0 5px 0 10px !important;
+  }
+  input[type="radio"]:checked+label, input[type="checkbox"]:checked+label {
+    background-color: $theme-color-1;
+    color: #fff;
+  }
+  label.radio, label.checkbox {
+    .option_label {
+      display: block;
+    }
+    background-color: $theme-color-2;
+    color: #fff;
+    display: inline-block;
+    width: 80px;
+    padding: 15px 5px;
+    font-family: $headline-font;
+    font-weight: bold;
+    font-size: 19px;
+    text-align: center;
+    margin: 5px 5px 10px 0;
+    cursor: pointer;
+    outline: none;
+  }
+  label.checkbox {
+    padding: 5px;
+    height: 30px;
+    font-size: 16px;
+    margin: 5px 5px 0 0;
+  }
+  &.checkbox-inline {
+    vertical-align: middle;
+    li {
+      width: 100%;
+      vertical-align: middle;
+      label {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.controls > .radio:first-child,
+.controls > .checkbox:first-child {
+  padding-top: 5px;
+}
+
+.inline-labels, .inline-radios {
+  input {
+    vertical-align: top;
+  }
+  label {
+    display: inline-block;
+    padding-left: 4px;
+    text-align: left;
+    &.checkbox {
+      padding-left: 0;
+    }
+  }
+}
+
+.radio.inline + .radio.inline,
+.checkbox.inline + .checkbox.inline {
+  margin-left: 10px;
+}
+
+.checkbox, .radio {
+  margin-left: 28px;
+}
+
+// container which wraps every form
+
+.form-wrap, .form_wrap {
+  padding: 25px;
+  background-color: $ltgrey;
+  h3{
+    font-size: 18px;
+    text-transform: uppercase;
+  }
+}
+
+.form-submit,
+.form_submit {
+  font-size: 12px;
+}
+
+.form_submitting {
+  img {
+    margin-right: 6px;
+  }
+}
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+textarea {
+  resize: vertical;
+}
+
+
+// expands all input fields to 100%
+
+.form {
+  .text {
+    width: 100%;
+  }
+}
+
+// inline sign in form
+
+.user-session-form-container {
+  margin-top: 10px;
+  h4 {
+    margin-bottom: 10px;
+  }
+  .social-login {
+    float: left;
+    width: 200px;
+  }
+  .session-form {
+    float: left;
+    width: 200px;
+  }
+  input[type="email"], input[type="password"], input.text {
+    width: 100%
+  }
+  .or-create-account {
+    font-size: 13px;
+    font-weight: bold;
+    white-space: nowrap;
+    display: inline-block;
+    padding: 10px 15px 0 15px;
+  }
+  .email-sign-in {
+    font-size: 13px;
+    font-weight: bold;
+    white-space: nowrap;
+    display: inline-block;
+    padding: 10px 15px 0 15px; }
+  .post-comment {
+    margin-right: -10px;
+  }
+  .oauth-links {
+    margin-bottom: 20px;
+    a {
+      display: inline-block;
+      @include size(32px, 32px);
+    }
+  }
+  .errors {
+    list-style-type: none;
+    font-size: 12px;
+    margin-left: 0;
+    margin-top: 0;
+    line-height: 25px;
+    display: none;
+  }
+}
+
+
+// form error messages
+
+.aware-theme.v2-theme .form-errors {
+
+  display: block;
+  padding: 0;
+  > * {
+    margin: 10px;
+  }
+  ul, li {
+    padding: 5px;
+    list-style: none;
+  }
+}
+
+form input.error {
+  border-color: rgba(255, 0, 0, 0.6);
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6);
+  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6);
+  margin-bottom: 3px;
+}
+
+.error-message {
+  font-size: 0.8em;
+  color: red;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+.warning, #errorExplanation {
+  background-color: $red;
+  color: white;
+  padding: 10px;
+  @include border-radius(2px);
+  margin: 0 0 15px 0;
+  font-size: 13px;
+  line-height: 17px;
+  h2 {
+    font-size: 20px;
+    line-height: 24px;
+  }
+}
+
+// inline radio buttons
+
+.radio.inline, .checkbox.inline, .inline label.radio {
+  display: inline-block;
+  margin-right: 20px;
+  padding-top: 5px;
+  margin-bottom: 10px;
+  vertical-align: middle;
+  &:first-child {
+    margin-left: 0;
+  }
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  border: 0;
+  padding: 0;
+  background: none;
+  box-shadow: 0;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+input[type="checkbox"] {
+  -webkit-appearance: none;
+}
+
+input[type="checkbox"]  {
+    display: inline-block;
+    width: 19px;
+    height: 19px;
+    margin: -1px 0px 0 -28px !important;
+    vertical-align: middle;
+    background-image: $check_radio_sheet !important;
+    background-position: left center !important;
+    background-repeat: no-repeat !important;
+    background-size: 86px 21px !important;
+    cursor: pointer;
+    @include border-radius(0px);
+}
+
+input[type="checkbox"]:checked {
+    background-image: $check_radio_sheet !important;
+    background-position: -22px center !important;
+    background-repeat: no-repeat !important;
+    background-size: 86px 21px !important;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+input[type="radio"] {
+  -webkit-appearance: none;
+}
+
+input[type="radio"] {
+  @include border-radius(10px);
+  display: inline-block;
+  width: 19px;
+  height: 19px;
+  margin: -1px 0px 0 -28px !important;
+  vertical-align: middle;
+  background-image: $check_radio_sheet !important;
+  background-position: -43px center !important;
+  background-repeat: no-repeat !important;
+  background-size: 86px 21px !important;
+  cursor: pointer;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  -moz-box-shadow: none !important;
+}
+
+input[type="radio"]:checked {
+  background-image: $check_radio_sheet !important;
+  background-position: -66px -2px !important;
+  background-repeat: no-repeat !important;
+  background-size: 86px 21px !important;
+}
+
+select{
+  -webkit-appearance: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+select{
+  width: 100%;
+  background-color: white;
+  border: 1px solid #cccccc;
+  background: url(down-arrow.png) center right no-repeat;
+  background-color: white;
+  padding: 10px 6px;
+  font-size: 14px;
+  color: #a9a9aa;
+  margin-bottom: 10px;
+  margin-top: 2px;
+  @include border-radius(0);
+}
+
+// NationBuilder Paymentes
+
+.StripeElement {
+  padding: 10px;
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  -webkit-appearance: none;
+  -webkit-border-radius:0
+  }
+
+.StripeElement--focus {
+  border-color: $theme-color-3;
+  outline: 0;
+  outline: thin dotted \9;
+}
+
+.page-type-nation-signup {
+  .payments-container {
+    min-height: 82px;
+    margin-bottom: 20px;
+  }
+  .card-error-container {
+    padding-top: 5px;
+    .card-error {
+      position: absolute;
+      color: $red;
+    }
+  }
+}

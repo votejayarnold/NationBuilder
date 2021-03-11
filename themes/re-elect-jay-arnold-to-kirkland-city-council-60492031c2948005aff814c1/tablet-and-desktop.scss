@@ -1,0 +1,974 @@
+/* ===================================================================================
+   This is the tablet and desktop stylesheet. It applies to viewports above 768px.
+   For the mobile first stylesheet which applies to all screen widths, see theme.scss.
+   =================================================================================== */
+
+//* style variables *//
+
+// headline font
+$headline-font: "Josefin Sans", sans-serif;
+
+// alternative headline font
+$headline-font-alt: "Josefin Sans", sans-serif;
+
+// main font
+$font: "Bitter", serif;
+
+$turquoise: #53cfd7;
+$grey: #999;
+$ltgrey: #999;
+$charcoal: #cacaca;
+$red: #ff3232;
+$green: #619114;
+$facebook: #3b5998;
+$twitter: #00aced;
+
+$onecolumn-bg: #fff;
+$twocolumn-color: #fff;
+
+$nav-hover: #D6C818;
+$nav-hover-color: #000;
+$nav-background: #FFEC00;
+$nav-color: #000;
+$desktop-site-bg: #000;
+$desktop-site-color: #000;
+$nav-container-border: 0;
+
+$headline-transform: uppercase;
+$flex-background: #fff;
+$flex-border: 4px solid #fff;
+$flex-color: #000;
+
+$theme-color-1: darken(#FFEC00, 8);
+$theme-color-2: #000;
+$theme-color-3: #333;
+$theme-color-4: darken(#FFEC00, 8);
+
+$icon-button-bg: #FFF7B0;
+
+$onecolumn-container-padding: 50px 30px;
+$onecolumn-container-border: 1px solid $theme-color-3;
+
+// border-radius mixin
+@import "border_radius";
+
+// fluid grid for tablet
+@import "grid-tablet";
+
+//compass css3 mixins
+@import "compass/css3";
+
+//mobile nav
+@import "mobile-nav";
+
+blockquote{
+  font-size: 24px;
+  line-height: 28px;
+}
+
+body {
+  background: $desktop-site-bg;
+  margin: 0;
+  font: 15px/24px $font;
+  color: $desktop-site-color;
+}
+
+h1.title {
+  font-size: 48px;
+  line-height: 50px;
+}
+
+// page layout if the sidebar is turned on
+
+.onecolumn-container {
+  padding: $onecolumn-container-padding;
+  border: $onecolumn-container-border;
+  width: 100%;
+  margin: 0px auto;
+  background: $onecolumn-bg;
+}
+
+.twocolumn-container {
+  margin-top: 35px;
+  margin-bottom: 20px;
+  .left-column, .right-column-wide {
+    float: left;
+    width: 67.2261208577%;
+    // 710px ÷ 1026px
+    margin-right: 2.559454191033%;
+    // 16px ÷ 1026px
+    margin-bottom: 0;
+    color: $twocolumn-color;
+  }
+  .right-column, .left-column-narrow {
+    float: left;
+    width: 30.214424951267%;
+    // 310px ÷ 1026px
+    margin-bottom: 0;
+  }
+  .right-column-wide {
+    margin-right: 0;
+  }
+  .left-column-narrow {
+    margin-right: 2.559454191033%;
+    // 16px ÷ 1026px
+  }
+}
+
+// site header image and subheadline
+
+.site-header{
+  font-size: 36px;
+  line-height: 40px;
+}
+
+// wraps your site name or site logo
+
+header {
+  max-width: 50%;
+  // 286px ÷ 1140px
+  float: left;
+  padding: 20px 0 20px 30px;
+}
+
+.site-logo {
+  header, header.splash {
+    float: left;
+    text-align: left;
+    padding: 0;
+    max-width: none;
+    margin-left: 0;
+    img {
+      max-width: none;
+      left: 0;
+    }
+    a{
+      position: static;
+    }
+  }
+}
+
+.header-container{
+  padding: 15px 0;
+}
+
+// site signup in the header
+
+.header-signup{
+  width: 30%;
+  float: right;
+  .email-signup {
+    margin-top: 24px;
+  }
+}
+
+// site wide footer
+
+footer {
+  .footer-right {
+    margin-top: 0;
+    text-align: right;
+  }
+}
+
+// hides off canvas nav
+
+.wrap.active {
+  left: 0;
+}
+
+.sharetable {
+  display: block;
+  width: 487px;
+  .facebook-cell {
+    float: left;
+    text-align: left;
+    padding: 0 20px 0 0;
+    vertical-align: top;
+    width: 320px;
+  }
+  .twitter-cell {
+    float: left;
+    text-align: left;
+    padding: 0 20px 0 0;
+    vertical-align: top;
+    width: 75px;
+  }
+}
+
+.mobile-visible {
+  display: none;
+}
+
+.desktop-visible {
+  display: block;
+}
+
+.flash-share {
+  .float {
+    float: right;
+  }
+}
+
+// icon which activates off canvas nav
+
+.menu-link {
+  display: none;
+}
+
+// top nav with drop downs
+
+.nav-container{
+  background: $nav-background;
+  margin-bottom: -1px;
+  position: relative;
+  z-index: 5;
+  border-bottom: $nav-container-border;
+}
+
+.subnav-container{
+  margin-bottom: 50px;
+}
+
+nav, .subnav {
+  background-color: transparent;
+  border-right: 0;
+  border-top: 0;
+  height: auto;
+  margin: 0;
+  position: static;
+  width: auto;
+  .topnav {
+    margin: 0;
+    padding: 0;
+    clear: both;
+    list-style: none;
+  }
+  li {
+    font-family: $headline-font;
+    display: inline-block;
+    margin: 0 10px 0 0;
+    position: relative;
+    background-color: $nav-background;
+    border: 0;
+    line-height: 55px;
+    text-transform: $headline-transform;
+    a {
+      display: block;
+      width: 100%;
+      height: 100%;
+      color: $nav-color;
+      padding: 0 15px 0;
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+    &:hover, &.active{
+      border-color: transparent;
+      background-color: $nav-hover;
+      color: $nav-hover-color;
+      a {
+        color: $nav-hover-color;
+      }
+    }
+  }
+  /* controls bg color of top when hovering on sub */
+  .sub {
+    position: absolute;
+    top: 54px;
+    left: 0;
+    z-index: 99999;
+    background-color: $nav-hover;
+    padding: 8px 0 5px 0;
+    width: 200px;
+    display: none;
+  }
+  .sub li {
+    width: 100%;
+    border: none;
+    color: $nav-hover-color;
+    font-size: 14px;
+    line-height: 28px;
+    display: block;
+    text-transform: none;
+    background-color: transparent;
+    border-color:transparent;
+    @include border-radius(0);
+
+    &.mobile-visible {
+      display: none;
+    }
+  }
+  .sub a {
+    background: none;
+    padding: 5px 20px 5px 22px;
+
+    &:hover {
+      background-color: transparent;
+      text-decoration: none;
+      color: white;
+    }
+  }
+}
+
+// navigation shown if a page has more than one subpage
+
+.subnav {
+  margin: 0 0 15px 0;
+  padding: 0;
+  float: left;
+  clear: both;
+  font-size: 13px;
+  max-width: 100%;
+  li{
+    margin-bottom: 13px;
+  }
+}
+
+.desktop-nav {
+  li:hover .sub {
+    display: block;
+  }
+}
+
+// follow page link shown in page stream
+
+.page-follow {
+  float: right;
+  margin-top: -35px;
+}
+
+// inline radio buttons and check boxes
+
+.radio-inline, .checkbox-inline {
+  span {
+    white-space: nowrap;
+    display: inline-block;
+  }
+  input[type="radio"], input[type="checkbox"] {
+    margin: 0;
+    display: inline-block;
+  }
+  input[type="radio"]:checked+label, input[type="checkbox"]:checked+label {
+    background-color: transparent;
+    color: #505054;
+  }
+  label {
+    display: block;
+  }
+  label.radio, label.checkbox {
+    .option_label {
+      display: inline;
+    }
+    position: relative;
+    top: 2px;
+    display: inline-block;
+    width: auto;
+    background-color: transparent;
+    font-family: $font;
+    color: #505054;
+    font-size: 15px;
+    font-weight: normal;
+    text-align: left;
+    padding: 0;
+  }
+  label.checkbox {
+    position: relative;
+    padding: 0;
+    height: auto;
+    font-size: inherit;
+    margin: 0;
+  }
+ &.checkbox-inline {
+    vertical-align: top;
+    li {
+      width: auto;
+      label {
+        width: auto;
+      }
+      input[type="checkbox"] {
+        vertical-align: middle;
+      }
+    }
+  }
+}
+
+// inline radio buttons
+
+.radio.inline, .checkbox.inline, .inline label.radio {
+  display: inline-block;
+  margin-right: 20px;
+  padding-top: 5px;
+  margin-bottom: 10px;
+  vertical-align: middle;
+  &:first-child {
+    margin-left: 0;
+  }
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  border: 0;
+  padding: 0;
+  background: none;
+  box-shadow: 0;
+}
+
+// wraps credit card icons
+
+.cc {
+  margin-top: 8px;
+  padding-bottom: 10px;
+}
+
+// paid membership options
+
+ul.membership-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  vertical-align: top;
+  li.membership {
+    vertical-align: top;
+    display: block;
+    float: left;
+    margin: 0 2% 1.22% 0;
+    width: 32%;
+    height: 250px;
+    &:nth-child(3n) {
+      margin-right: 0;
+    }
+    .buy {
+      position: absolute;
+      width: 88px;
+      bottom: 15px;
+      margin-left: -44px;
+      left: 50%;
+    }
+  }
+}
+
+// featured content slider
+
+.page-features {
+  position: relative;
+  margin: 35px 0 50px 0;
+  .features-headline {
+    font-size: 36px;
+    line-height: 40px;
+    padding: 15px 65px;
+    top: 41%;
+  }
+  .single-feature, .multiple-features{
+    height: 455px;
+  }
+}
+
+.flex-direction-nav {
+  top: 39%;
+}
+
+.flex-prev, .flex-next {
+  display: block;
+  height: 63px;
+  font-size: 44px;
+  border: $flex-border;
+  color: $flex-color;
+  padding: px;
+}
+.flex-prev{
+  left: 10px;
+}
+.flex-next{
+  right: 10px;
+}
+
+// inline sign in form
+
+.user-session-form-container {
+  .oauth-links {
+   margin-bottom: 0;
+  }
+  .sign-in-with-email, .sign-up {
+    border-left: 1px solid #ccc;
+    padding-left: 4.762431%;
+    position: relative;
+  }
+}
+
+.or-button{
+  display: block;
+}
+
+.review-rules {
+  float: right;
+  font-size: 12px;
+  padding: 0;
+}
+
+// page specific styles
+
+.page-user-sessions-new-wide, .page-users-accounts-new-wide, .page-users-password-resets-new-wide, .page-users-passwords-new-wide {
+  .onecolumn-container {
+    margin: 0 auto;
+    margin-top: 0px;
+    width: 100%;
+    border-bottom: 0;
+  }
+  footer {
+    margin: 0 auto;
+    width: 100%;
+  }
+}
+
+.page-pages-show-voter-registration .iframe-wrapper {
+  left: 0;
+  width: 100%;
+}
+
+#event_rsvp_guests_count, input.quantity, #signup_donations_to_raise_amount {
+  width: 25%;
+}
+
+.suggestion-tag-list {
+  li {
+    margin: 15px 15px 10px 0;
+  }
+}
+
+input#donation_amount_other {
+  width: 30%;
+}
+
+.distance {
+  .within {
+    position: relative;
+    top: 2px;
+    display: inline;
+    padding-right: 5px;
+  }
+}
+
+.page-user-sessions-new-wide {
+  h2 {
+    font-size: 31.5px;
+    line-height: 35px;
+  }
+}
+
+// inline formatting for name, activity type and date in page stream for tablet and desktop view
+
+ul#page-stream {
+  li.activity  {
+    span + a {
+    display: inline;
+    } 
+  }
+  .activity-time {
+    display: inline;
+  }
+  .timeago {
+    display: inline;
+    padding-right: 0;
+    float: none;
+    font-size: 65%;
+    color: inherit;
+  }
+  .activity_links a {
+    display: inline;
+  }
+  .activity_content {
+    clear: none;
+  }
+}
+
+
+ul.homepage_excerpt-list{
+  li{
+    .left{
+      width: 50%;
+      padding-right: 20px;
+      float: left;
+    }
+    .right{
+      width: 50%;
+      padding-left: 20px;
+      float: left;
+      border-left: 1px solid $theme-color-3;
+    }
+  }
+}
+
+.blog{
+  .span7{
+    width: 59.94475138121547% !important;
+    margin-left: 0 !important;
+    display: table-cell !important;
+    float: none !important;
+    vertical-align: top;
+    padding-left: 10px;
+  }
+  .span5{
+    display: table-cell !important;
+    float: none !important;
+  }
+  .row-fluid{
+    display: table;
+    table-layout: fixed;
+  }
+  .post-image{
+    height: 365px;
+  }
+  h3{
+    font-family: $font;
+    text-transform: none;
+    font-size: 30px;
+    line-height: 34px;
+    margin-bottom: 10px;
+    color: black;
+  }
+  .read-more, .read_more{
+    display: inline-block;
+    font-style: inherit;
+    a{
+      color: $theme-color-4;
+    }
+  }
+  .icon-button{
+    background: transparent;
+    color: $theme-color-4;
+    padding-left: 0;
+    i{
+      width: 25px;
+      height: 25px;
+      background: $icon-button-bg;
+      @include border-radius(25px);
+      overflow: hidden;
+      text-align: center;
+      margin-right: 8px;
+    }
+  }
+  hr{
+    margin: 50px 0;
+  }
+}
+
+.page-type-donation{
+  .left{
+    width: 31.914893617021278%;
+    float: left;
+  }
+  .right{
+    width: 65.95744680851064%;
+    margin-left: 2.127659574468085%;
+    float: left;
+  }
+}
+
+.page-pages-show-petition-wide, .page-pages-show-moneybomb-wide, .page-pages-show-feedback-wide, .page-pages-show-endorsement-wide, .page-pages-show-signup-wide, .page-pages-show-volunteer-wide, .page-pages-show-vote-pledge-wide, .page-pages-show-survey-wide{
+  .left{
+    width: 40.42553191489362%;
+    float: left;
+  }
+  .right{
+    width: 57.44680851063829%;
+    margin-left: 2.127659574468085%;
+    float: left;
+  }
+}
+
+// page specific styles
+
+.content-pages-show-blog-post, .content-pages-show-blog-post-wide{
+  font-size: 18px;
+  line-height: 26px;
+}
+
+.tablet-visible {
+  display: none;
+}
+
+// Tablet only
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+
+  .radio-inline, .checkbox-inline {
+    input[type="radio"], input[type="checkbox"] {
+      display: none;
+      margin: 0 5px 0 10px !important;
+    }
+    input[type="radio"]:checked+label, input[type="checkbox"]:checked+label {
+      background-color: $theme-color-1;
+      color: #fff;
+    }
+    label.radio, label.checkbox {
+      .option_label {
+        display: block;
+      }
+      background-color: $theme-color-2;
+      color: $theme-color-4;
+      display: inline-block;
+      width: 80px;
+      padding: 15px 5px;
+      font-family: $headline-font;
+      font-weight: bold;
+      font-size: 19px;
+      text-align: center;
+      margin: 5px 5px 10px 0;
+      cursor: pointer;
+      outline: none;
+    }
+    label.checkbox {
+      padding: 5px;
+      height: 30px;
+      font-size: 16px;
+      margin: 5px 5px 0 0;
+    }
+    &.checkbox-inline {
+      vertical-align: middle;
+      li {
+        width: 100%;
+        vertical-align: middle;
+        label {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .distance .within {
+    display: block;
+    margin-bottom: 1em;
+  }
+
+// off canvas nav to be used on tablets, since drop downs don't work on touch devices
+
+  .nav-container {
+    display:none;
+  }
+
+  nav {
+    @include mobile-nav;
+    float: none;
+    margin: 0;
+    li {
+      margin: 0;
+      padding: 0;
+      @include border-radius(0);
+      line-height: 21px;
+      &.active, &.drop {
+        background-color: $theme-color-4;
+        border-bottom: 1px solid darken($theme-color-4, 15);
+        & > a {
+          color: #fff;
+        }
+      }
+      a {
+        padding: .8em;
+      }
+    }
+    .sub {
+      position: static;
+      width: 100%;
+      padding: 0;
+      li {
+        border-bottom: 1px solid darken($theme-color-4, 15);
+        background-color: darken($theme-color-4, 5);
+        &:last-child {
+          margin-bottom: 0;
+        }
+        a {
+          padding: 12px;
+          color: #ccc;
+        }
+        &.mobile-visible {
+          display: block;
+        }
+      }
+    }
+  }
+
+  .menu-link {
+    display: block;
+    margin-right: 20px;
+  }
+
+  .wrap.active {
+    left: 16em;
+  }
+
+  .supporter-nav li a {
+    font-size:.85em;
+    span, i {
+      font-size: 1.176em;
+    }
+  }
+
+// javascript is used to wrap all iframes in a span called responsive-embed-wrapper to make them responsive.
+// once the iframe is wrapped in said span, it will be shown.
+
+  iframe[src *= 'youtube'] {
+    display: none;
+  }
+
+  .responsive-embed-wrapper iframe {
+    display: block;
+  }
+
+  .fb-like-box iframe {
+    display: block;
+  }
+
+  header {
+    padding: 24px 0;
+    max-width: 78%;
+    @each $current-headline-font in $headline-font {
+      @if $current-headline-font == 'Josefin Sans' {
+        padding-top: 31px;
+      }
+    }
+  }
+
+  .header-signup .email-signup {
+    margin-top: 27px;
+  }
+
+// replaces the subnav with breadcrumbs, as dropdowns don't work in touch devices
+
+  .tablet-visible {
+    display: block;
+  }
+
+  .desktop-visible {
+    .subnav-container {
+      display: none;
+    }
+  }
+}
+
+// Desktop above 1140px styles
+
+@media only screen and (min-width: 1140px) {
+
+  // maximum side width container
+
+  .width-container {
+    width: 1026px; /* 1140px - 10% for margins */
+    margin: 0 auto;
+  }
+
+  // paid membership options
+
+  ul.membership-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    li.membership {
+      position: relative;
+      display: block;
+      float: left;
+      margin: 0 2% 1.22% 0;
+      width: 32%;
+      text-align: center;
+      list-style: none;
+      background-color: $ltgrey;
+      @include border-radius(2px);
+      padding: 15px;
+      height: 250px;
+      .membership-bottom {
+        background-color: #444;
+        color: #ccc;
+      }
+      .membership-blurb {
+        padding: 15px 0;
+        font-size: 13px;
+        line-height: 16px;
+      }
+      .buy {
+        position: absolute;
+        width: 88px;
+        bottom: 15px;
+        margin-left: -44px;
+        left: 50%;
+      }
+      .badge {
+        font-size: 12px;
+        text-transform: uppercase;
+      }
+    }
+  }
+
+}
+
+// blog-widget border
+
+.blog-widget:nth-child(odd) {
+  padding-right: 10px;
+}
+
+.blog-post-widget {
+  display: table-cell;
+  .blog-post-widget-image {
+    background-size: cover !important;
+    display: table-cell;
+    float: none !important;
+    height: auto;
+  }
+  .blog-post-widget-right {
+    margin-left: 0 !important;
+    display: table-cell !important;
+    float: none !important;
+    vertical-align: top;
+    background-color: white;
+  }
+}
+
+// styles when the site has a background image
+
+.with-background{
+  .onecolumn-container{
+    padding: 90px;
+  }
+
+  // style for homepage blog widget 
+  .blog-widget-parent {
+    display: table-cell;
+    .blog-widget {
+      display: table-cell;
+      float: none;
+      position: relative;
+      padding-bottom: 20px;
+      vertical-align:top;
+      -moz-background-clip: padding;
+      -webkit-background-clip: padding;
+      background-clip: padding-box;
+      &:nth-child(odd) {
+        padding-right: 0px;
+        border-right: 10px solid transparent;
+      }
+      &:nth-child(even) {
+        border-left: 10px solid transparent;
+      }
+      .share-bar {
+        width: 100%;
+        padding-left: 20px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width : 768px) {
+  .page-pages-show-donation-wide {
+    .radio-inline {
+      label.radio {
+        min-width: 123px;
+      }
+      span:nth-child(2n) label.radio {
+        margin-right: 0;
+      }
+    }
+  }
+}

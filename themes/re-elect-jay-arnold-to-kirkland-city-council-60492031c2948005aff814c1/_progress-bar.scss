@@ -1,0 +1,150 @@
+.progress {
+  position: relative;
+  overflow: hidden;
+  height: 45px;
+  background-color: $progress;
+  margin: 0px auto;
+}
+
+.progress .bar {
+  width: 0;
+  height: 100%;
+  color: #ffffff;
+  float: left;
+  font-size: 18px;
+  font-family: $headline_font;
+  text-align: center;
+  background-color: $theme-color-1;
+  box-sizing: border-box;
+  transition: width 0.6s ease;
+}
+
+.progress .bar + .bar {
+}
+
+.progress-striped .bar {
+  background-color: $theme-color-1;
+}
+
+.progress.active .bar {
+  animation: progress-bar-stripes 2s linear infinite;
+  -moz-animation: progress-bar-stripes 2s linear infinite;
+  -ms-animation: progress-bar-stripes 2s linear infinite;
+  -o-animation: progress-bar-stripes 2s linear infinite;
+  animation: progress-bar-stripes 2s linear infinite;
+}
+
+.progress-danger .bar,
+.progress .bar-danger {
+  background-color: #dd514c;
+}
+
+.progress-danger.progress-striped .bar,
+.progress-striped .bar-danger {
+  background-color: #ee5f5b;
+}
+
+.progress-success .bar,
+.progress .bar-success {
+  background-color: $theme-color-1;
+}
+
+.progress-success.progress-striped .bar,
+.progress-striped .bar-success {
+  background-color: $theme-color-1;
+}
+
+.progress-info .bar,
+.progress .bar-info {
+  background-color: #4bb1cf;
+}
+
+.progress-info.progress-striped .bar,
+.progress-striped .bar-info {
+  background-color: #5bc0de;
+}
+
+.progress-warning .bar,
+.progress .bar-warning {
+  background-color: #faa732;
+}
+
+.progress-warning.progress-striped .bar,
+.progress-striped .bar-warning {
+  background-color: #fbb450;
+}
+
+.bar-text {
+  line-height: 45px;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  font-size: 18px;
+  color: white;
+  text-transform: $headline-transform;
+}
+
+.bar-goal {
+  line-height: 45px;
+  font-size: 18px;
+  color: $theme-color-4;
+  font-family: $headline-font;
+  text-align: center;
+  text-transform: $headline-transform;
+}
+
+@-webkit-keyframes progress-bar-stripes {
+  from {
+    background-position: 40px 0;
+  }
+  to {
+    background-position: 0 0;
+  }
+}
+
+@-moz-keyframes progress-bar-stripes {
+  from {
+    background-position: 40px 0;
+  }
+  to {
+    background-position: 0 0;
+  }
+}
+
+@-ms-keyframes progress-bar-stripes {
+  from {
+    background-position: 40px 0;
+  }
+  to {
+    background-position: 0 0;
+  }
+}
+
+@-o-keyframes progress-bar-stripes {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 40px 0;
+  }
+}
+
+@keyframes progress-bar-stripes {
+  from {
+    background-position: 40px 0;
+  }
+  to {
+    background-position: 0 0;
+  }
+}
+
+
+// donation page progress bar styling
+.content-pages-show-donation-wide {
+  .progress {
+    margin: 20px 0 0 0;
+  }
+  .bar-goal {
+    text-align: left;
+  }
+}

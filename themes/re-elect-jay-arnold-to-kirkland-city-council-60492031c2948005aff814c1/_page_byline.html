@@ -1,0 +1,24 @@
+<div class="byline">
+
+	<div class="byline-image-wrap">
+		<div class="byline-image">
+			{{ page.author.bigger_profile_image }}
+		</div>
+		
+		{% if request.logged_in? %}
+		{% unless request.current_signup.id == page.author.id %}
+		<div class="byline-follow">
+			<div class="signup-follow-{{ page.author.id }}">
+				{% assign byline = page.author %}
+	        	{% include "signup_follow" with byline %}
+	    	</div>
+		</div>
+		{% endunless %}
+		{% endif %}
+	</div>
+
+  posted by <span class="name">{{ page.author.published_name_linked }}</span> | <span class="pc">{{ page.author.capital_amount_format }}</span><br>
+    {{ page.published_at | date: '%B %d, %Y' }}
+  {% if site.has_rule_page? and request.logged_in? %}&middot; <a href="{{ page.flag_url }}" class="flag"><i class="fa fa-flag"></i></a>{% endif %}
+
+</div>
