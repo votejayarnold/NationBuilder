@@ -64,23 +64,28 @@
             </div>
 
             {% if site.has_meta_image? %}
-              <div class="site-logo">
-                <header><a href="/"><img src="{{ site.meta_image_url }}"></a></header>
-              </div>
+              <header>
+                <div class="width-container clearfix">
+                  <div class="site-logo">
+                    <a href="/"><img src="{{ site.meta_image_url }}"></a>
+                  </div>
+                </div>
+              </header>
             {% else %}
               <header>
                 <h1 class="title"><a href="/">{{ site.long_name }}</a></h1>
               </header>
             {% endif %}
 
+            {% comment %}
             <div class="header-signup desktop-visible">
               {% if request.logged_in? or request.sorta_logged_in? or page.page_class_name == 'page-type-donation' or page.page_class_name == 'page-type-signup' or page.page_class_name == 'page-type-volunteer-signup' or request.template == 'user_sessions_new_wide' or page.request.template == 'user_sessions_new'%}
               {% else %}
-                {% include "signup_form" with site.signup_page %}
+              {% include "signup_form" with site.signup_page %}
               {% endif %}
             </div>
+            {% endcomment %}
 
-          </div>
           <!-- .width-container -->
         </div>
         <!-- .header-container -->
@@ -88,6 +93,7 @@
         <div class="nav-container desktop-visible">
           <div class="width-container clearfix">
               {% include "nav" %}
+            </div>
           </div>
         </div>
 
@@ -121,7 +127,12 @@
 
               <div class="span6">
                 {% if site.footer_content.size > 0 %}
-                <div class="footer-text">{{ site.footer_content }}</div>
+                <div class="footer-text">
+                  {{ site.footer_content }}<br /><br />
+                  <!-- The NationBuilder link below is required. If it is removed, we may add it back ourselves.
+                       You can style it or move it in different ways, but please leave it in the footer. -->
+                  Created with <a href="{{ site.attribution_url }}">NationBuilder</a> using a public theme by <a href="http://www.cstreet.ca/">cStreet</a>
+                </div>
                 {% endif %}
               </div>
 
@@ -150,32 +161,7 @@
 
             </div>
 
-              <hr/>
-
-            <div class="row-fluid">
-
-              <div class="span7 footer-left">
-                {% if request.logged_in? %}
-                  Hi <a href="{{ request.current_signup.settings_url }}">{{ request.current_signup.name_or_email }}</a>. View your
-                  {% if site.show_public_profiles? %}
-                    <a href="{{ request.current_signup.profile_url }}">public profile</a>,
-                  {% endif %}
-                  <a href="{{ request.current_signup.settings_url }}">account settings</a>, or
-                  <a href="{{ request.current_signup.logout_url }}">sign out</a>.
-                {% else %}
-                  Sign in with <a href="{{ request.facebook_connect_url }}">Facebook</a>, <a
-                      href="{{ request.twitter_connect_url }}">Twitter</a> or <a href="/login">email</a>.
-                {% endif %}
-              </div>
-              <div class="span5 footer-right">
-                <!-- The NationBuilder link below is required. If it is removed, we may add it back ourselves.
-                     You can style it or move it in different ways, but please leave it in the footer. -->
-                Created with <a href="{{ site.attribution_url }}">NationBuilder</a><br/>using a public theme by <a href="http://www.cstreet.ca/">cStreet</a>
-              </div>
-
-            </div>
-
-          </div>
+            <hr/>
           <!-- .width-container -->
         </footer>
 

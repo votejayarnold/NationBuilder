@@ -6,45 +6,45 @@
 //* style variables *//
 
 // headline font
-$headline-font: "Josefin Sans", sans-serif;
+$headline-font: "Open Sans", sans-serif;
 
 // alternative headline font
-$headline-font-alt: "Josefin Sans", sans-serif;
+$headline-font-alt: "Open Sans", sans-serif;
 
 // main font
-$font: "Bitter", serif;
+$font: "Open Sans", sans-serif;
 
 $turquoise: #53cfd7;
-$grey: #999;
-$ltgrey: #999;
-$charcoal: #cacaca;
-$red: #ff3232;
-$green: #619114;
+$grey: #636363;
+$ltgrey: #f5f5f5;
+$charcoal: #656565;
+$red: #EC6353;
+$green: #8fbf00;
 $facebook: #3b5998;
 $twitter: #00aced;
 
 $onecolumn-bg: #fff;
-$twocolumn-color: #fff;
+$twocolumn-color: #000;
 
-$nav-hover: #D6C818;
-$nav-hover-color: #000;
-$nav-background: #FFEC00;
-$nav-color: #000;
-$desktop-site-bg: #000;
+$nav-hover: #636363;
+$nav-hover-color: #fff;
+$nav-background: #000;
+$nav-color: #fff;
+$desktop-site-bg: #8fbf00;
 $desktop-site-color: #000;
-$nav-container-border: 0;
+$nav-container-border: 7px solid #502df9;
 
 $headline-transform: uppercase;
-$flex-background: #fff;
-$flex-border: 4px solid #fff;
-$flex-color: #000;
+$flex-background: #000;
+$flex-border: 4px solid #000;
+$flex-color: #fff;
 
-$theme-color-1: darken(#FFEC00, 8);
+$theme-color-1: #8fbf00;
 $theme-color-2: #000;
-$theme-color-3: #333;
-$theme-color-4: darken(#FFEC00, 8);
+$theme-color-3: #e4e4e4;
+$theme-color-4: #636363;
 
-$icon-button-bg: #FFF7B0;
+$icon-button-bg: #8fbf00;
 
 $onecolumn-container-padding: 50px 30px;
 $onecolumn-container-border: 1px solid $theme-color-3;
@@ -76,6 +76,7 @@ body {
 h1.title {
   font-size: 48px;
   line-height: 50px;
+  text-align: center;
 }
 
 // page layout if the sidebar is turned on
@@ -133,7 +134,7 @@ header {
 
 .site-logo {
   header, header.splash {
-    float: left;
+    float: center;
     text-align: left;
     padding: 0;
     max-width: none;
@@ -149,7 +150,7 @@ header {
 }
 
 .header-container{
-  padding: 15px 0;
+  /* padding: 15px 0; */
 }
 
 // site signup in the header

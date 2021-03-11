@@ -109,6 +109,31 @@
             <div class="span12 content-wrap">
               <h3><a href="{{ post.url }}">{{ post.headline }}</a></h3>
 
+              <div class="byline">
+
+                <div class="byline-image-wrap">
+                  <div class="byline-image">
+                    {{ post.author.bigger_profile_image }}
+                  </div>
+
+                  {% if request.logged_in? %}
+                  {% unless request.current_signup.id == post.author.id %}
+                  <div class="byline-follow">
+                    <div class="signup-follow-{{ post.author.id }}">
+                      {% assign byline = post.author %}
+                      {% include "signup_follow" with byline %}
+                    </div>
+                  </div>
+                  {% endunless %}
+                  {% endif %}
+                </div>
+
+                posted by <span class="name">{{ post.author.published_name_linked }}</span>  {% comment %}| <span class="pc">{{ post.author.capital_amount_format }}</span>{% endcomment %}}<br>
+                {{ post.published_at | date: '%B %d, %Y' }}
+                {% if site.has_rule_post? and request.logged_in? %}&middot; <a href="{{ post.flag_url }}" class="flag"><i class="fa fa-flag"></i></a>{% endif %}
+
+              </div>
+
               <div class="excerpt">
                 {{ post.blog_post.content }}
                 {% if post.blog_post.is_extended? %}
@@ -116,34 +141,10 @@
                 {% endif %}
               </div>
 
-              <div class="byline">
-
-                <div class="byline-image-wrap">
-                  <div class="byline-image">
-                    {{ post.author.bigger_profile_image }}
-                  </div>
-                  
-                  {% if request.logged_in? %}
-                  {% unless request.current_signup.id == post.author.id %}
-                  <div class="byline-follow">
-                    <div class="signup-follow-{{ post.author.id }}">
-                      {% assign byline = post.author %}
-                          {% include "signup_follow" with byline %}
-                      </div>
-                  </div>
-                  {% endunless %}
-                  {% endif %}
-                </div>
-
-                posted by <span class="name">{{ post.author.published_name_linked }}</span> | <span class="pc">{{ post.author.capital_amount_format }}</span><br>
-                  {{ post.published_at | date: '%B %d, %Y' }}
-                {% if site.has_rule_post? and request.logged_in? %}&middot; <a href="{{ post.flag_url }}" class="flag"><i class="fa fa-flag"></i></a>{% endif %}
-
-              </div>
-
               <div class="share-bar">
                 {% if post.show_stream? %}
 
+                {% comment %}
                 <a href="{{ post.url }}#addreaction" class="button icon-button">
                   {% if post.public_activities_count > 0 %}
                     <i>{{ post.public_activities_count }}</i> comment{% if post.public_activities_count > 1 %}s{% endif %}
@@ -151,7 +152,7 @@
                     <i class="fa fa-comment"></i> Comment
                   {% endif %}
                 </a>
-
+                {% endcomment %}
                 {% endif %}
 
                 <a href="/forms/shares/new?page_id={{ post.id }}" class="get button icon-button"><i class="fa fa-sitemap"></i>Share</a>
