@@ -532,7 +532,7 @@ header {
     }
     img {
       /* max-width: 225px; */
-      /* max-height: 100px; */
+      max-height: 225px;
       position: relative;
     }
 }
@@ -2961,7 +2961,7 @@ footer .width-container {
 }
 @media (min-width: 570px) {
   .page-type-donation-v2 .page-pages-show-donation-v2-wide .onecolumn-container {
-    width: 513px;
+    /* width: 513px; */
   }
 }
 @media (min-width: 768px) {
