@@ -126,14 +126,6 @@
             {% endif %}
           {% endif %}
 
-          {% if site.ask_to_publish_to_stream? %}
-            <div class="row-fluid">
-
-              <div class="span12"><label class="checkbox" for="survey_response_is_private">{% check_box "is_private", class:"checkbox" %} Don't publish my responses on the website</label></div>
-
-            </div>
-          {% endif %}
-
           {% if page.show_consent_form? %}{% include "consent_form" %}{% endif %}
 
           <div class="row-fluid padtop">
