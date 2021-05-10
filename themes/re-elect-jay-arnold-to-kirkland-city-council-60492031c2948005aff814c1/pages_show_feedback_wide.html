@@ -46,13 +46,6 @@
               </div>
             </div>
 
-            {% if site.ask_to_publish_to_stream? %}
-              <div class="row-fluid">
-                <div class="span12">
-                  <label class="checkbox" for="feedback_is_private">{% check_box "is_private", class:"checkbox" %} Don't post this publicly</label>
-                </div>
-              </div>
-            {% endif %}
           {% endif %}
 
           {% if request.sorta_logged_in? == false or request.current_signup.has_name? == false %}
