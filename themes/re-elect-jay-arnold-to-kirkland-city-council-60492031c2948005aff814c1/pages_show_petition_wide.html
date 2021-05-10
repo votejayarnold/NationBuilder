@@ -201,17 +201,7 @@
               </div>
               {% endif %}
 
-              {% if site.ask_to_publish_to_stream? %}
-              <div class="row-fluid">
-
-                <div class="span12">
-                  <label class="checkbox" for="petition_signature_is_private">{% check_box "is_private", class:"checkbox" %} Don't publish this on the website</label>
-                </div>
-
-              </div>
-              {% else %}
-                  <input id="petition_signature_is_private" name="petition_signature[is_private]" type="hidden" value="1" />
-              {% endif %}
+              <input id="petition_signature_is_private" name="petition_signature[is_private]" type="hidden" value="1" />
 
               {% if page.petition.is_volunteer? and site.ask_for_volunteers? %}
               {% if request.sorta_logged_in? == false or request.current_signup.is_volunteer == false %}

@@ -320,9 +320,6 @@
               {{ page.donation_v2.merchant_account.contribution_rules }}
               <label for="donation_is_confirmed" class="checkbox padtopless padbottom">{% check_box "is_confirmed", class:"checkbox" %} I confirm that the above statements are true and accurate.</label>
               {% endif %}
-              {% if site.ask_to_publish_to_stream? %}
-              <label for="donation_is_private" class="checkbox padtopmore">{% check_box "is_private", class:"checkbox" %} Don't publish my donation on the website.</label>
-              {% endif %}
             </div>
           </div>
           <div class="row-fluid">
